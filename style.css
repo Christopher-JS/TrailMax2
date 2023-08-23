@@ -8,10 +8,14 @@
     --chocolate: #9f5f3c;
     --tertiary-orange: #e68a1b;
     --pinkish: #ceafae;
+    --white: #f7f8ff;
+    --gray: #c1c0c4;
 }
 
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,7 +23,183 @@
 
 body {
     width: 100%;
+    max-width: 1400px;
     height: 100%;
+    margin: auto;
     font-family: "Poppins", sans-serif;
-    background-color: var(--pColor);
+    background-color: var(--secondary-black);
+}
+
+/* img {
+    width: 100%;
+    height: auto;
+} */
+
+/* Styling the Navbar */
+nav {
+    height: 100vh;
+    display: none;
+    background-color: var(--primary-grey);
+    color: var(--white);
+    padding: 1rem 2rem 0 2rem
+}
+
+nav img {
+    width: 100%;
+    height: auto;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nav-header .open-menu {
+    display: none;
+}
+
+.nav-header .close-menu {
+    font-size: 1.3rem;
+}
+
+.nav-header img {
+    width: 40%;
+}
+
+/* Navbar items */
+nav .nav-items-container {
+    display: grid;
+    gap: 1rem;
+}
+
+nav .nav-items-container .nav-element {
+    display: grid;
+    gap: .2rem;
+}
+
+.nav-element h2 {
+    font-size: 1.2rem;
+    color: #c1c0c4;
+}
+
+.nav-element>div {
+    display: grid;
+    gap: .3rem;
+    padding-left: .5rem;
+}
+
+/* Styling the Main Section */
+main {
+    /* background-color: blue; */
+    padding: 0.5rem 1rem 0rem 1rem;
+}
+
+/* Main Section Navbar */
+main .nav-header {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+main.nav-header img {
+    width: 50px
+}
+
+main .main-navigation {
+    display: none;
+}
+
+
+
+
+
+@media screen and (min-width: 800px) {
+    body {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+
+    /* Styling the Navbar */
+    nav {
+        display: block;
+        background-color: var(--primary-grey);
+        color: var(--white);
+        height: 100vh;
+        padding: 2rem 2rem 0 2rem
+    }
+
+    nav .nav-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav-header .open-menu {
+        display: block;
+    }
+
+    .nav-header .close-menu {
+        display: none;
+    }
+
+    /* navbar items */
+    nav .nav-items-container {
+        gap: 1.5rem;
+    }
+
+    nav .nav-items-container .nav-element {
+        gap: .5rem;
+    }
+
+    /* Main section */
+    /* Main section Navigation */
+    main .nav-header {
+        display: none;
+    }
+
+    main .main-navigation {
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .main-navigation input[type="search"] {
+        width: 80%;
+        color: var(--white);
+        background-color: var(--primary-grey);
+        border: none;
+        padding: .5rem 1rem;
+        border-radius: .5rem;
+    }
+
+    .main-navigation input[type="search"]::placeholder {
+        color: var(--gray);
+    }
+
+    .main-navigation .main-lang-choice {
+        display: flex;
+        align-items: center;
+        gap: .5rem
+    }
+
+    .main-lang-choice .main-lang-choice img {
+        display: none;
+    }
+
+    .main-navigation .login-user {
+        margin-left: .5rem;
+    }
+
+    .main-navigation .login-user>p>i {
+        margin-right: .5rem;
+    }
+
 }
