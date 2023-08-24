@@ -21,6 +21,7 @@ if (window.matchMedia("(min-width: 800px)").matches) {
     mainOpenMenuBtn.addEventListener(("click"), toggleNavbar);
     navbarOpenMenuBtn.addEventListener(("click"), toggleNavbar);
 
+
 } else {
     mainOpenMenuBtn.addEventListener(("click"), () => {
         navbar.style.display = "grid"
@@ -34,3 +35,15 @@ if (window.matchMedia("(min-width: 800px)").matches) {
     })
 
 }
+
+
+
+
+// const newBodyStyles = {
+//             "display": "grid",
+//             "width": "100%",
+//             "grid-template-column": "100%,"
+//             // "background-color": "red",
+//         }
+//         let body = document.querySelector("body");
+//         Object.assign(body.style, newBodyStyles);

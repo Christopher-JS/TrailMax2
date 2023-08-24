@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 :root {
+  --movie-slider-padding: 2.5rem;
   --secondary-black: #0b0b0c;
   --primary-grey: #696969;
   --brown: #4a3c32;
@@ -126,6 +127,157 @@ main .main-navigation {
   display: none;
 }
 
+/* Featured Movies section */
+.featured-movies {
+  color: white;
+  background: linear-gradient(0deg, rgba(11, 11, 12, 0.7), rgba(105, 105, 105, 0.3)), url(./assets/img/antMan.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: .5rem;
+  padding: 1rem .5rem;
+  margin-bottom: 2rem;
+
+}
+
+.featured-movies .featured-description {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+}
+
+.featured-description>div:first-of-type {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featured-description>div:first-of-type>.rank {
+  font-weight: bold;
+  background-color: var(--tertiary-orange);
+  color: var(--secondary-black);
+  padding: .35rem;
+  border-radius: .5rem;
+}
+
+.featured-description>div:first-of-type>p:nth-of-type(2) {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--blueish-grey);
+  border-radius: .25rem;
+  padding: .25rem;
+}
+
+.featured-description>div:first-of-type>p:nth-of-type(2)>i {
+  font-size: 1rem;
+}
+
+.featured-description .description {
+  margin-top: .5rem;
+}
+
+.featured-description .description h3 {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: var(--white);
+}
+
+.featured-description .description h3+p {
+  color: var(--gray);
+  margin-bottom: .65rem;
+}
+
+.featured-description .description h3+p+p {
+  font-size: .75rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.featured-description .description .likes {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.featured-description .description .likes>p {
+  padding: .2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+
+/* Styling the movie slider / caroussel section */
+.movie-caroussel {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+}
+
+.slider {
+  flex-grow: 1;
+  /* width: calc(100% - 2 * var(--movie-slider-padding)); */
+  display: flex;
+  transform: translateX(-00%);
+
+}
+
+.slider>img {
+  flex: 0 0 25%;
+  max-width: 25%;
+  aspect-ratio: 16/9;
+  padding: .25rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.handle {
+  font-size: 5rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  width: 5rem;
+  /* width: var(--movie-slider-padding); */
+  background-color: rgb(138, 43, 226, .5);
+  z-index: 10;
+  margin: .15rem 0;
+  padding: 0 .25rem;
+  border: none;
+  border-radius: .5rem;
+}
+
+
+.handle:hover,
+.handle:focus {
+  font-size: 6rem;
+  transition: font-size 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
+  background-color: rgb(138, 43, 226, .75);
+  cursor: pointer;
+}
+
+.left-handle {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+
+.right-handle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+/* Don't forget to fix the body later on */
+
+
+
 @media screen and (min-width: 800px) {
   body {
     display: grid;
@@ -178,8 +330,8 @@ main .main-navigation {
     margin-right: auto;
   }
 
-  main section {
-    /* background-color: blue; */
+  main #main-navigation-section {
+    /* background-color: red; */
     width: 100%;
     display: grid;
     grid-template-columns: 15% 80%;
@@ -187,6 +339,7 @@ main .main-navigation {
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 
   main .nav-header {
@@ -241,5 +394,14 @@ main .main-navigation {
 
   .main-navigation .login-user>p>i {
     margin-right: 0.5rem;
+  }
+
+  /* Featured Movies Section */
+  .featured-movies {
+    padding: 2rem 1rem;
+  }
+
+  .featured-description .description {
+    width: 60%;
   }
 }
