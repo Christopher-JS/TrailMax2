@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="./index.js"></script>
+    <script defer src="./index.js"></script>
     <title>TrailMax Movies</title>
 </head>
 
 <body>
-    <nav>
+    <nav id="navbar">
         <div class="nav-header">
-            <i class="fa-solid fa-bars open-menu"></i>
-            <i class="fa-regular fa-xmark close-menu"></i>
+            <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
+            <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
             <img src="./assets/img/Trailmax1.png" alt="logo">
         </div>
 
@@ -25,7 +25,7 @@
                 <div>
                     <p><i class="fa-solid fa-house"></i> Home</p>
                     <p><i class="fa-regular fa-tower-broadcast"></i> Community</p>
-                    <p><i class="fa-regular fa-forward"></i> Coming Soon</p>
+                    <p><i class="fa-regular fa-forward"></i> Upcoming</p>
                 </div>
             </div>
 
@@ -59,21 +59,29 @@
 
     <!-- Main Section -->
     <main>
-        <section class="main-nav">
-            <div class="nav-header">
-                <i class="fa-solid fa-bars open-menu"></i>
-                <i class="fa-regular fa-xmark close-menu"></i>
+        <section id="main-navigation-section">
+            <div class="nav-header active-main-nav" id="main-nav-header">
+                <i class="fa-solid fa-bars open-menu" id="main-sect-nav-open-menu-btn"></i>
+                <i class="fa-regular fa-xmark close-menu" id="main-sect-close-menu-btn"></i>
                 <img src="./assets/img/Trailmax1.png" alt="logo">
             </div>
+
 
             <div class="main-navigation">
                 <input type="search" name="main-search" id="main-search" placeholder="Search here">
                 <div class="main-lang-choice">
-                    <img src="./assets/img/england1.png" alt="lang-English" width="20px" height="20px">
-                    <p>ENG <i class="fa-solid fa-caret-down"></i></p>
+                    <img src="./assets/img/england1.png" alt="lang-English" width="20x" height="20px">
+                    <div>
+                        <p>ENG</p>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
                 </div>
+
                 <div class="login-user">
-                    <p><i class="fa-solid fa-user"></i> Login</p>
+                    <div>
+                        <i class="fa-solid fa-user"></i>
+                        <p>Login</p>
+                    </div>
                 </div>
             </div>
         </section>
