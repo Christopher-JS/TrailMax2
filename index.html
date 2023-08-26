@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script defer src="./index.js"></script>
     <title>TrailMax Movies</title>
 </head>
@@ -15,7 +15,7 @@
         <div class="nav-header">
             <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
             <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
-            <img src="./assets/img/Trailmax1.png" alt="logo">
+            <img src="./assets/img/Trailmax1.png" alt="logo" />
         </div>
 
         <!-- <div class="nav-items"> -->
@@ -53,7 +53,6 @@
                     <p><i class="fa-regular fa-circle-question"></i> Help</p>
                 </div>
             </div>
-
         </div>
     </nav>
 
@@ -63,14 +62,13 @@
             <div class="nav-header active-main-nav" id="main-nav-header">
                 <i class="fa-solid fa-bars open-menu" id="main-sect-nav-open-menu-btn"></i>
                 <i class="fa-regular fa-xmark close-menu" id="main-sect-close-menu-btn"></i>
-                <img src="./assets/img/Trailmax1.png" alt="logo">
+                <img src="./assets/img/Trailmax1.png" alt="logo" />
             </div>
 
-
             <div class="main-navigation">
-                <input type="search" name="main-search" id="main-search" placeholder="Search here">
+                <input type="search" name="main-search" id="main-search" placeholder="Search here" />
                 <div class="main-lang-choice">
-                    <img src="./assets/img/england1.png" alt="lang-English" width="20x" height="20px">
+                    <img src="./assets/img/england1.png" alt="lang-English" width="20x" height="20px" />
                     <div>
                         <p>ENG</p>
                         <i class="fa-solid fa-caret-down"></i>
@@ -96,8 +94,9 @@
                     <h3>Ant Man | Quantumania</h3>
                     <p>2023</p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi explicabo dolorem iste possimus
-                        modi! Explicabo amet nemo voluptates cupiditate iure atque natus et modi harum!
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
+                        explicabo dolorem iste possimus modi! Explicabo amet nemo
+                        voluptates cupiditate iure atque natus et modi harum!
                     </p>
                     <div class="likes">
                         <p><i class="fa-regular fa-thumbs-up fa-shake"></i></p>
@@ -108,23 +107,91 @@
         </section>
 
         <!-- Movie Slider / Caroussel Section -->
-        <section class="movie-caroussel"> <!-- Container-->
-            <button class="handle left-handle">&#8249;</button>
-            <div class="slider">
-                <img src="https://via.placeholder.com/210/00ff00?text=1" alt=""><img
-                    src="https://via.placeholder.com/220/00ff00?text=2" alt=""><img
-                    src="https://via.placeholder.com/230/00ff00?text=3" alt=""><img
-                    src="https://via.placeholder.com/240/00ff00?text=4" alt=""><img
-                    src="https://via.placeholder.com/250/00ff00?text=5" alt=""><img
-                    src="https://via.placeholder.com/260/00ff00?text=6" alt=""><img
-                    src="https://via.placeholder.com/270/00ff00?text=7" alt=""><img
-                    src="https://via.placeholder.com/280/00ff00?text=8" alt=""><img
-                    src="https://via.placeholder.com/290/00ff00?text=9" alt="">
+        <!-- movie-caroussel = row -->
+        <section class="movie-caroussel">
+            <div class="caroussel-header">
+                <div>
+                    <h3 class="title">Featured Movies</h3>
+                    <p> Watch the best movies of the moment</p>
+                </div>
+                <div class="slider-progress-bar">
+                    <!-- Progress-items elements to be populated with JS -->
+                </div>
             </div>
-            <button class="handle right-handle">&#8250;</button>
+
+            <!-- Container-->
+            <div class="movie-container">
+                <button class="handle left-handle">&#8249;</button>
+                <div class="slider">
+                    <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
+                    <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
+                    <img src="./assets/img/cinema2.jpg" alt="Cinema" />
+                    <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
+                    <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
+                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                    <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
+                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                </div>
+                <button class="handle right-handle">&#8250;</button>
+            </div>
+        </section>
+
+        <!-- TV Series Section -->
+        <section class="movie-caroussel">
+            <div class="caroussel-header">
+                <div>
+                    <h3 class="title">New TV Series</h3>
+                    <p> Watch the latest tv series from across the globe</p>
+                </div>
+                <div class="slider-progress-bar">
+                </div>
+            </div>
+
+            <!-- Container-->
+            <div class="movie-container">
+                <button class="handle left-handle">&#8249;</button>
+                <div class="slider">
+                    <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
+                    <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
+                    <img src="./assets/img/cinema2.jpg" alt="Cinema" />
+                    <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
+                    <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
+                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                    <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
+                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                </div>
+                <button class="handle right-handle">&#8250;</button>
+            </div>
+        </section>
+
+        <!-- For Kids section -->
+        <section class="movie-caroussel">
+            <div class="caroussel-header">
+                <div>
+                    <h3 class="title">Movies for Kids</h3>
+                    <p>Keep your kids entertained with these amazing kids movies</p>
+                </div>
+                <div class="slider-progress-bar">
+                </div>
+            </div>
+
+            <!-- Container-->
+            <div class="movie-container">
+                <button class="handle left-handle">&#8249;</button>
+                <div class="slider">
+                    <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
+                    <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
+                    <img src="./assets/img/cinema2.jpg" alt="Cinema" />
+                    <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
+                    <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
+                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                    <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
+                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                </div>
+                <button class="handle right-handle">&#8250;</button>
+            </div>
         </section>
     </main>
-
 </body>
 
 </html>
