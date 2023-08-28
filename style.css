@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 :root {
+  --nav-width: 100%;
   --handle-size: 2rem;
   --movie-slider-padding: 2.5rem;
   --img-gap: 0.25rem;
@@ -29,17 +30,14 @@ body {
   height: 100%;
   margin: auto;
   font-family: "Poppins", sans-serif;
+  color: var(--white);
   background-color: var(--secondary-black);
 }
 
 /* Styling the Navbar */
 nav {
-  height: 100vh;
-  min-width: 10rem;
-  display: none;
-  background-color: var(--primary-grey);
-  color: var(--white);
-  padding: 0rem 2rem 0 2rem;
+  width: var(--nav-width);
+  padding: 0.5rem;
 }
 
 nav img {
@@ -47,79 +45,89 @@ nav img {
   height: auto;
 }
 
-.nav-header {
-  /* background-color: red; */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0rem;
-}
-
-/* .nav-header .open-menu {
-  display: none;
-} */
-
-.nav-header .close-menu {
-  font-size: 1.3rem;
-}
-
-.nav-header img {
-  width: 5rem;
-}
-
-/* Navbar items */
-nav .nav-items-container {
-  display: grid;
-  gap: 1rem;
-}
-
-nav .nav-items-container .nav-element {
-  display: grid;
-  gap: 0.2rem;
-}
-
-.nav-element h2 {
-  font-size: 1.2rem;
-  color: #c1c0c4;
-}
-
-.nav-element > div {
-  display: grid;
-  gap: 0.3rem;
-  padding-left: 0.3rem;
-}
-
-/* Styling the Main Section */
-main {
-  padding: 0.5rem 1rem 0rem 1rem;
-}
-
-/* Main Section Navbar */
-main .nav-header {
+nav .resp-nav-header {
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
 
-main .open-menu,
-main .close-menu {
-  font-size: 1.5rem;
+nav .resp-nav-header img {
+  width: 5rem;
 }
 
-main .close-menu {
+nav .resp-nav-header .close-menu {
+  display: none;
+  font-size: 1.2rem;
+}
+
+nav .resp-nav-header .open-menu {
+  font-size: 1.2rem;
+}
+
+/* navbar with items */
+.nav-items-container {
   display: none;
 }
 
-main.nav-header img {
-  width: 50px;
-  /* height: 20px; */
+.active-nav-items {
+  display: block;
 }
 
-main .main-navigation {
+.nav-items-container {
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: var(--primary-grey);
+  margin-left: -0.5rem;
+  padding: 1rem 1rem;
+}
+
+.nav-items-container .nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.nav-items-container .nav-header .close-menu {
+  font-size: 1.5rem;
+}
+
+.nav-items-container .nav-header img {
+  width: 5rem;
+  height: auto;
+}
+
+.nav-items-container .nav-items {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.nav-items-container .nav-items .nav-element h2 {
+  font-size: 1.5rem;
+  color: var(--gray);
+}
+
+.nav-items-container .nav-items .nav-element > div {
+  font-size: 1.2rem;
+  display: grid;
+  gap: 0.3rem;
+  margin-left: 0.5rem;
+}
+
+/* Hide Searchbar Section on mobile devices */
+nav .nav-search {
+  display: none;
+}
+
+/* Main section */
+main {
+  padding: 0.5rem;
+}
+main .empty-boiler-plate {
   display: none;
 }
 
@@ -334,121 +342,117 @@ main .main-navigation {
 /* Don't forget to fix the body later on */
 
 @media screen and (min-width: 800px) {
-  body {
-    display: grid;
-    grid-template-columns: 20% 75%;
-  }
-
   /* Styling the Navbar */
   nav {
-    display: none;
+    position: relative;
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    padding: 0.5rem 0.5rem;
   }
 
-  .active-nav {
-    display: block;
-    background-color: var(--primary-grey);
-    color: var(--white);
-    height: 100vh;
-    padding: 2rem 2rem 0 2rem;
+  nav .resp-nav-header {
+    width: 22%;
+    margin-bottom: 0rem;
   }
 
-  nav .nav-header {
+  nav .nav-search {
+    width: 78%;
+    max-width: 1400px;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .nav-header .open-menu {
-    display: block;
-  }
-
-  .nav-header .close-menu {
-    display: none;
-  }
-
-  /* navbar items */
-  nav .nav-items-container {
-    gap: 1.5rem;
-  }
-
-  nav .nav-items-container .nav-element {
-    gap: 0.5rem;
-  }
-
-  /* Main section */
-  /* Main section Navigation */
-  main {
-    width: 100%;
-    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  main #main-navigation-section {
-    /* background-color: red; */
-    width: 100%;
-    display: grid;
-    grid-template-columns: 15% 80%;
-    gap: 5%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  main .nav-header {
-    display: flex;
-    align-items: space-around;
-    margin-right: 1rem;
-    margin-bottom: 0;
-  }
-
-  main .nav-header .open-menu {
-    font-size: 1.2rem;
-  }
-
-  main .main-navigation {
-    width: 100%;
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .main-navigation input[type="search"] {
+  .nav-search input[type="search"] {
     width: 80%;
     color: var(--white);
     background-color: var(--primary-grey);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    margin-right: 1.5rem;
   }
 
-  .main-navigation input[type="search"]::placeholder {
+  .nav-search input[type="search"]::placeholder {
     color: var(--gray);
   }
 
-  .main-navigation .main-lang-choice {
+  .nav-search .main-lang-choice {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
 
-  .main-navigation .main-lang-choice > div,
-  .main-navigation .login-user > div {
+  .nav-search .main-lang-choice img {
+    width: 20px;
+    height: auto;
+  }
+
+  .nav-search .main-lang-choice > div,
+  .nav-search .login-user > div {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
 
-  .main-navigation .login-user {
+  .nav-search .login-user {
     margin-left: 0.5rem;
   }
 
-  .main-navigation .login-user > p > i {
+  .nav-search .login-user > p > i {
     margin-right: 0.5rem;
+  }
+
+  /* Navbar with items */
+  .nav-items-container {
+    position: static;
+    width: 22%;
+    max-width: 300px;
+    position: fixed;
+    background-color: var(--primary-grey);
+    padding-left: 1rem;
+  }
+
+  .nav-items-container .nav-header {
+    margin-bottom: 1rem;
+  }
+
+  .nav-items-container .nav-items {
+    gap: 1rem;
+  }
+
+  .nav-items-container .nav-items .nav-element h2 {
+    font-size: 1.3rem;
+  }
+
+  .nav-items-container .nav-items .nav-element > div {
+    font-size: 1rem;
+    display: grid;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+  }
+
+  /* main section */
+  main {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  main .show-boiler-plate {
+    width: 22%;
+    display: block;
+  }
+
+  main .main-section {
+    width: 100%;
+  }
+
+  main .full-main-section {
+    width: 78%;
   }
 
   /* Featured Movies Section */
