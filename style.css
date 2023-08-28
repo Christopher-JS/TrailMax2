@@ -83,6 +83,7 @@ nav .resp-nav-header .open-menu {
   background-color: var(--primary-grey);
   margin-left: -0.5rem;
   padding: 1rem 1rem;
+  z-index: 100;
 }
 
 .nav-items-container .nav-header {
