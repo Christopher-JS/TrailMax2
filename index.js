@@ -139,18 +139,33 @@ const onHandleClick = (handle) => {
     }
 }
 
+// Movie details Modal Section JS
+// const openModalButtons = document.querySelectorAll("[data-modal-target]")
+// const closeModalButtons = document.querySelectorAll("[data-close-button]")
+// const overlay = document.getElementById("overlay")
 
+// openModalButtons.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         const modal = document.querySelector(btn.dataset.modalTarget)
+//         openModal(modal)
+//     })
+// })
 
+// closeModalButtons.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         const modal = btn.closest(".modal")
+//         closeModal(modal)
+//     })
+// })
 
+// const openModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.add("active")
+//     overlay.classList.add("active")
+// }
 
-
-
-
-// const newBodyStyles = {
-//             "display": "grid",
-//             "width": "100%",
-//             "grid-template-column": "100%,"
-//             // "background-color": "red",
-//         }
-//         let body = document.querySelector("body");
-//         Object.assign(body.style, newBodyStyles);
+// const closeModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.remove("active")
+//     overlay.classList.remove("active")
+// }
