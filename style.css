@@ -134,6 +134,8 @@ main .empty-boiler-plate {
 
 /* Featured Movies section */
 .featured-movies {
+  width: 100%;
+  aspect-ratio: 16 / 4;
   color: white;
   background: linear-gradient(
       0deg,
@@ -144,14 +146,20 @@ main .empty-boiler-plate {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  display: grid;
+  place-items: center;
   border-radius: 0.5rem;
   padding: 1rem 0.5rem;
   margin-bottom: 2rem;
 }
 
 .featured-movies .featured-description {
+  /* background-color: red; */
   width: 100%;
-  display: grid;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -340,8 +348,168 @@ main .empty-boiler-plate {
   border-bottom-right-radius: 0;
 }
 
-/* Don't forget to fix the body later on */
+/* Movie details Modal */
+.modal-section {
+  /* padding: 1rem 0.5rem; */
+}
 
+.modal {
+  width: 95%;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* From https://css.glass */
+  background: rgba(11, 11, 12, 0.91);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 102;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(
+      0deg,
+      rgba(11, 11, 12, 0.7),
+      rgba(105, 105, 105, 0.3)
+    ),
+    url(./assets/img/antMan.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.modal-header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header > div .movie-type {
+  color: var(--secondary-black);
+  background-color: var(--tertiary-orange);
+  font-size: 1.25rem;
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.5rem;
+}
+
+.modal-header > div .close-button {
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  padding: 0.1rem;
+}
+
+.modal-body {
+  padding: 0.5rem 1rem 0 1rem;
+}
+
+.modal-body .modal-body-header,
+.modal-body .modal-body-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.modal-body-header > .movie-title {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.modal-body-header .movie-title > h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.modal-body-header .movie-title > .rating {
+  font-size: 0.85rem;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-body-header .movie-title > .rating > p + p {
+  border-left: 1px solid var(--gray);
+  /* background-color: red; */
+  padding-left: 0.5rem;
+}
+
+.modal-body-header .movie-title > .add-to-playlist {
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.modal-body-header .movie-genre {
+  color: var(--gray);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal-body-header .movie-genre > p {
+  border: 1px solid var(--gray);
+  align-self: flex-start;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.modal-body .modal-body-description .movie-summary > h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.modal-body .modal-body-description .movie-summary > p,
+.modal-body .modal-body-description .movie-cast > p {
+  font-size: 0.85rem;
+}
+
+.modal-body .modal-body-description .movie-cast > p > span {
+  color: var(--gray);
+  margin-right: 0.2rem;
+}
+
+#overlay {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0%;
+  right: 0%;
+  background: rgba(105, 105, 105, 0.16);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+  z-index: 101;
+  border-radius: 0.1rem;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Desktop Styling */
 @media screen and (min-width: 800px) {
   /* Styling the Navbar */
   nav {
@@ -464,6 +632,36 @@ main .empty-boiler-plate {
   .featured-description .description {
     width: 60%;
   }
+
+  /* Movie details modal */
+  .modal {
+    width: 75%;
+    max-width: 1200px;
+  }
+
+  .modal .modal-header {
+    aspect-ratio: 16 / 5;
+    padding: 1rem 1rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem 1rem 0 1rem;
+  }
+
+  .modal-body .modal-body-header,
+  .modal-body .modal-body-description {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .modal-body .modal-body-header .movie-title,
+  .modal-body .modal-body-description .movie-summary {
+    width: 60%;
+  }
+
+  .modal-body .modal-body-description .movie-cast {
+    width: 40%;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -484,5 +682,39 @@ main .empty-boiler-plate {
   /* Movie Slider */
   .slider {
     --items-per-screen: 4;
+  }
+}
+
+/* Height Media Queries */
+@media screen and (max-height: 600px) {
+  .modal-header {
+    aspect-ratio: 10 / 3;
+    padding: 0.2rem 1rem;
+  }
+
+  .modal-header > div .movie-type {
+    font-size: 1rem;
+    padding: 0.1rem 0.3rem;
+  }
+
+  .modal-header > div .close-button {
+    font-size: 1rem;
+  }
+
+  .modal-body .modal-body-header {
+    margin-bottom: -0.8rem;
+  }
+
+  .modal-body-header .movie-title > h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .modal-body-header .movie-genre {
+    display: none;
+  }
+
+  .modal-body-header .movie-genre > p {
+    display: none;
   }
 }
