@@ -12,186 +12,246 @@
 
 <body>
     <nav id="navbar">
-        <div class="nav-header">
+        <div class="resp-nav-header">
             <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
             <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
             <img src="./assets/img/Trailmax1.png" alt="logo" />
         </div>
 
-        <!-- <div class="nav-items"> -->
-        <div class="nav-items-container">
-            <div class="nav-element">
-                <h2>Menu</h2>
+        <section class="nav-items-container">
+            <div class="nav-header">
+                <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
+                <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
+                <img src="./assets/img/Trailmax1.png" alt="logo" />
+            </div>
+
+            <!-- <div class="nav-items"> -->
+            <div class="nav-items">
+                <div class="nav-element">
+                    <h2>Menu</h2>
+                    <div>
+                        <p><i class="fa-solid fa-house"></i> Home</p>
+                        <p><i class="fa-regular fa-tower-broadcast"></i> Community</p>
+                        <p><i class="fa-regular fa-forward"></i> Upcoming</p>
+                    </div>
+                </div>
+
+                <div class="nav-element">
+                    <h2>Library</h2>
+                    <div>
+                        <p><i class="fa-solid fa-list"></i> Playlist</p>
+                        <p><i class="fa-regular fa-circle-down"></i> Downloads</p>
+                    </div>
+                </div>
+
+                <div class="nav-element">
+                    <h2>Category</h2>
+                    <div>
+                        <p><i class="fa-regular fa-film"></i> Movies</p>
+                        <p><i class="fa-solid fa-tv"></i> TV series</p>
+                        <p><i class="fa-regular fa-eye"></i> Reality Shows</p>
+                    </div>
+                </div>
+
+                <div class="nav-element">
+                    <h2>General</h2>
+                    <div>
+                        <p><i class="fa-regular fa-gear"></i> Settings</p>
+                        <p><i class="fa-regular fa-circle-question"></i> Help</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nav-search">
+            <input type="search" name="main-search" id="main-search" placeholder="Search here" />
+            <div class="main-lang-choice">
+                <img src="./assets/img/england1.png" alt="lang-English" />
                 <div>
-                    <p><i class="fa-solid fa-house"></i> Home</p>
-                    <p><i class="fa-regular fa-tower-broadcast"></i> Community</p>
-                    <p><i class="fa-regular fa-forward"></i> Upcoming</p>
+                    <p>ENG</p>
+                    <i class="fa-solid fa-caret-down"></i>
                 </div>
             </div>
 
-            <div class="nav-element">
-                <h2>Library</h2>
+            <div class="login-user">
                 <div>
-                    <p><i class="fa-solid fa-list"></i> Playlist</p>
-                    <p><i class="fa-regular fa-circle-down"></i> Downloads</p>
+                    <i class="fa-solid fa-user"></i>
+                    <p>Login</p>
                 </div>
             </div>
-
-            <div class="nav-element">
-                <h2>Category</h2>
-                <div>
-                    <p><i class="fa-regular fa-film"></i> Movies</p>
-                    <p><i class="fa-solid fa-tv"></i> TV series</p>
-                    <p><i class="fa-regular fa-eye"></i> Reality Shows</p>
-                </div>
-            </div>
-
-            <div class="nav-element">
-                <h2>General</h2>
-                <div>
-                    <p><i class="fa-regular fa-gear"></i> Settings</p>
-                    <p><i class="fa-regular fa-circle-question"></i> Help</p>
-                </div>
-            </div>
-        </div>
+        </section>
     </nav>
 
     <!-- Main Section -->
     <main>
-        <section id="main-navigation-section">
-            <div class="nav-header active-main-nav" id="main-nav-header">
-                <i class="fa-solid fa-bars open-menu" id="main-sect-nav-open-menu-btn"></i>
-                <i class="fa-regular fa-xmark close-menu" id="main-sect-close-menu-btn"></i>
-                <img src="./assets/img/Trailmax1.png" alt="logo" />
-            </div>
-
-            <div class="main-navigation">
-                <input type="search" name="main-search" id="main-search" placeholder="Search here" />
-                <div class="main-lang-choice">
-                    <img src="./assets/img/england1.png" alt="lang-English" width="20x" height="20px" />
+        <section class="empty-boiler-plate">H</section>
+        <section class="main-section ">
+            <div class="featured-movies">
+                <div class="featured-description">
                     <div>
-                        <p>ENG</p>
-                        <i class="fa-solid fa-caret-down"></i>
+                        <p class="rank">Top 10</p>
+                        <p><i class="fa-solid fa-plus"></i></p>
+                    </div>
+                    <div class="description">
+                        <h3>Ant Man | Quantumania</h3>
+                        <p>2023</p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
+                            explicabo dolorem iste possimus modi! Explicabo amet nemo
+                            voluptates cupiditate iure atque natus et modi harum!
+                        </p>
+                        <div class="likes">
+                            <p><i class="fa-regular fa-thumbs-up fa-shake"></i></p>
+                            <p><i class="fa-regular fa-thumbs-down"></i></p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="login-user">
+            <!-- Movie Slider / Caroussel Section -->
+            <!-- movie-caroussel = row -->
+            <div class="movie-caroussel">
+                <div class="caroussel-header">
                     <div>
-                        <i class="fa-solid fa-user"></i>
-                        <p><a href="login.html">Login</a></p>
+                        <h3 class="title">Featured Movies</h3>
+                        <p> Watch the best movies of the moment</p>
+                    </div>
+                    <div class="slider-progress-bar">
+                        <!-- Progress-items elements to be populated with JS -->
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="featured-movies">
-            <div class="featured-description">
-                <div>
-                    <p class="rank">Top 10</p>
-                    <p><i class="fa-solid fa-plus"></i></p>
+                <!-- Container-->
+                <div class="movie-container">
+                    <button class="handle left-handle">&#8249;</button>
+                    <div class="slider">
+                        <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
+                        <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
+                        <img src="./assets/img/cinema2.jpg" alt="Cinema" />
+                        <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
+                        <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
+                        <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                        <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
+                        <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                    </div>
+                    <button class="handle right-handle">&#8250;</button>
                 </div>
-                <div class="description">
-                    <h3>Ant Man | Quantumania</h3>
-                    <p>2023</p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                        explicabo dolorem iste possimus modi! Explicabo amet nemo
-                        voluptates cupiditate iure atque natus et modi harum!
-                    </p>
-                    <div class="likes">
-                        <p><i class="fa-regular fa-thumbs-up fa-shake"></i></p>
-                        <p><i class="fa-regular fa-thumbs-down"></i></p>
+            </div>
+
+            <!-- TV Series Section -->
+            <div class="movie-caroussel">
+                <div class="caroussel-header">
+                    <div>
+                        <h3 class="title">New TV Series</h3>
+                        <p> Watch the latest tv series from across the globe</p>
+                    </div>
+                    <div class="slider-progress-bar">
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Movie Slider / Caroussel Section -->
-        <!-- movie-caroussel = row -->
-        <section class="movie-caroussel">
-            <div class="caroussel-header">
-                <div>
-                    <h3 class="title">Featured Movies</h3>
-                    <p> Watch the best movies of the moment</p>
-                </div>
-                <div class="slider-progress-bar">
-                    <!-- Progress-items elements to be populated with JS -->
-                </div>
-            </div>
-
-            <!-- Container-->
-            <div class="movie-container">
-                <button class="handle left-handle">&#8249;</button>
-                <div class="slider">
-                    <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
-                    <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
-                    <img src="./assets/img/cinema2.jpg" alt="Cinema" />
-                    <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
-                    <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
-                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
-                    <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
-                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
-                </div>
-                <button class="handle right-handle">&#8250;</button>
-            </div>
-        </section>
-
-        <!-- TV Series Section -->
-        <section class="movie-caroussel">
-            <div class="caroussel-header">
-                <div>
-                    <h3 class="title">New TV Series</h3>
-                    <p> Watch the latest tv series from across the globe</p>
-                </div>
-                <div class="slider-progress-bar">
+                <!-- Container-->
+                <div class="movie-container">
+                    <button class="handle left-handle">&#8249;</button>
+                    <div class="slider">
+                        <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
+                        <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
+                        <img src="./assets/img/cinema2.jpg" alt="Cinema" />
+                        <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
+                        <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
+                        <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                        <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
+                        <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                    </div>
+                    <button class="handle right-handle">&#8250;</button>
                 </div>
             </div>
 
-            <!-- Container-->
-            <div class="movie-container">
-                <button class="handle left-handle">&#8249;</button>
-                <div class="slider">
-                    <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
-                    <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
-                    <img src="./assets/img/cinema2.jpg" alt="Cinema" />
-                    <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
-                    <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
-                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
-                    <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
-                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+            <!-- For Kids section -->
+            <div class="movie-caroussel">
+                <div class="caroussel-header">
+                    <div>
+                        <h3 class="title">Movies for Kids</h3>
+                        <p>Keep your kids entertained with these amazing kids movies</p>
+                    </div>
+                    <div class="slider-progress-bar">
+                    </div>
                 </div>
-                <button class="handle right-handle">&#8250;</button>
-            </div>
-        </section>
 
-        <!-- For Kids section -->
-        <section class="movie-caroussel">
-            <div class="caroussel-header">
-                <div>
-                    <h3 class="title">Movies for Kids</h3>
-                    <p>Keep your kids entertained with these amazing kids movies</p>
+                <!-- Container-->
+                <div class="movie-container">
+                    <button class="handle left-handle">&#8249;</button>
+                    <div class="slider">
+                        <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
+                        <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
+                        <img src="./assets/img/cinema2.jpg" alt="Cinema" />
+                        <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
+                        <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
+                        <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                        <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
+                        <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
+                    </div>
+                    <button class="handle right-handle">&#8250;</button>
                 </div>
-                <div class="slider-progress-bar">
-                </div>
-            </div>
-
-            <!-- Container-->
-            <div class="movie-container">
-                <button class="handle left-handle">&#8249;</button>
-                <div class="slider">
-                    <img src="./assets/img/antMan2.jpeg" alt="AntMan 2" />
-                    <img src="./assets/img/avatar2.jpg" alt="Avatar 2" />
-                    <img src="./assets/img/cinema2.jpg" alt="Cinema" />
-                    <img src="./assets/img/fast10.jpg" alt="Fast & Furious 10" />
-                    <img src="./assets/img/Johnwick4.jpg" alt="Johnwick 4" />
-                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
-                    <img src="./assets/img/cinema2.jpg" alt="cinema 2" />
-                    <img src="./assets/img/wakandaForever.jpg" alt="Wakanda Forever" />
-                </div>
-                <button class="handle right-handle">&#8250;</button>
             </div>
         </section>
     </main>
+
+    <!-- Movie Description Modal Window -->
+    <div class="modal-section">
+        <!-- <button data-modal-target="#modal">
+            Open Modal
+        </button> -->
+
+        <div class="modal active" id="modal">
+            <div class="modal-header">
+                <div>
+                    <p class="movie-type">Movie</p>
+                    <p class="close-button" data-close-button><i class="fa-regular fa-xmark"></i></p>
+                </div>
+
+                <!-- <button class="close-button" data-close-button>&times;</button> -->
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-body-header">
+                    <div class="movie-title">
+                        <h2>Ant Man | Quantumania</h2>
+                        <div class="rating">
+                            <p class="movie-length">1h30min</p>
+                            <p class="movie-rating"><i class="fa-solid fa-star" style="color: #e68a1b"></i> 4.5</p>
+                            <p class="movie-rated">12+</p>
+                            <p class="movie-quality">4K</p>
+                        </div>
+                        <p class="add-to-playlist" style="color: #e68a1b"><i class="fa-solid fa-plus"></i>Add to
+                            Playlist</p>
+                    </div>
+
+                    <div class="movie-genre">
+                        <p>Fantastic</p>
+                        <p>Marvel</p>
+                        <p>Action</p>
+                    </div>
+                </div>
+
+                <div class="modal-body-description">
+                    <div class="movie-summary">
+                        <h3>Synopsis</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corporis provident quaerat
+                            aperiam suscipit quia fuga, minima vel.</p>
+                    </div>
+                    <div class="movie-cast">
+                        <p><span>Director:</span> Beau Willimon</p>
+                        <p><span>Cast:</span> Kevin Spacey, Robin Wright, Michael Kelly, Kate Mara, Corey Stoll, Rachel
+                            Brosnahan, Michel Gill, Sandrine Holt, Boris McGiver</p>
+                        <p><span>Studio:</span> Marvel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="active" id="overlay"></div>
+    </div>
+
 </body>
 
 </html>

@@ -1,40 +1,36 @@
-// Navbar open Menu Btn
-let navbarOpenMenuBtn = document.querySelector("#navbar-open-menu-btn");
-let navbarCloseMenuBtn = document.querySelector("#navbar-close-menu-btn");
-let navbar = document.querySelector("#navbar");
+//Toggle NavBar on Mobile and desktop
+const respNavHeader = document.querySelector(".resp-nav-header")
+const navbarItems = document.querySelector(".nav-items-container")
+const openHamburgerBtn = document.querySelectorAll(".open-menu")
+const closeMenuBtn = document.querySelectorAll(".close-menu")
+const emptyMainBoilerplate = document.querySelector(".empty-boiler-plate")
+const mainSection = document.querySelector(".main-section")
 
-// Main section open Menu Btn
-let mainOpenMenuBtn = document.querySelector("#main-sect-nav-open-menu-btn");
-let mainCloseMenuBtn = document.querySelector("#main-sect-close-menu-btn")
-
-// Toggle Navbar Function
 const toggleNavbar = () => {
-    console.log("clicked")
-    navbar.classList.toggle("active-nav");
+    if (window.matchMedia("(min-width: 800px)").matches) {
+        navbarItems.classList.toggle("active-nav-items")
+        emptyMainBoilerplate.classList.toggle("show-boiler-plate")
+        mainSection.classList.toggle("full-main-section")
+        if (!navbarItems.classList.contains("active-nav-items")) {
+            respNavHeader.style.display = "flex"
+        } else {
+            closeMenuBtn[1].style.display = "none"
+            // mainSection.style.width = "78%"
+        }
+    } else {
+        navbarItems.classList.toggle("active-nav-items")
+        if (!navbarItems.classList.contains("active-nav-items")) {
+            respNavHeader.style.display = "flex"
+        } else {
+            respNavHeader.style.display = "none"
+            openHamburgerBtn[1].style.display = "none";
+            closeMenuBtn[1].style.display = "block"
+        }
+    }
 }
 
-if (window.matchMedia("(min-width: 800px)").matches) {
-
-    navbar.className += "active-nav";
-
-    mainOpenMenuBtn.addEventListener(("click"), toggleNavbar);
-    navbarOpenMenuBtn.addEventListener(("click"), toggleNavbar);
-
-
-} else {
-    mainOpenMenuBtn.addEventListener(("click"), () => {
-        navbar.style.display = "grid"
-        document.querySelector("#main-nav-header").style.display = "none"
-        navbarOpenMenuBtn.style.display = "none"
-    })
-    navbarCloseMenuBtn.addEventListener(("click"), () => {
-        navbar.style.display = "none";
-        document.querySelector("#main-nav-header").style.display = "flex"
-        navbarOpenMenuBtn.style.display = "block"
-    })
-
-}
-
+openHamburgerBtn.forEach(btn => btn.addEventListener("click", toggleNavbar))
+closeMenuBtn.forEach(btn => btn.addEventListener("click", toggleNavbar))
 
 
 // Movie Caroussel & Slider JAVASCRIPT Logic
@@ -143,18 +139,33 @@ const onHandleClick = (handle) => {
     }
 }
 
+// Movie details Modal Section JS
+// const openModalButtons = document.querySelectorAll("[data-modal-target]")
+// const closeModalButtons = document.querySelectorAll("[data-close-button]")
+// const overlay = document.getElementById("overlay")
 
+// openModalButtons.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         const modal = document.querySelector(btn.dataset.modalTarget)
+//         openModal(modal)
+//     })
+// })
 
+// closeModalButtons.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         const modal = btn.closest(".modal")
+//         closeModal(modal)
+//     })
+// })
 
+// const openModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.add("active")
+//     overlay.classList.add("active")
+// }
 
-
-
-
-// const newBodyStyles = {
-//             "display": "grid",
-//             "width": "100%",
-//             "grid-template-column": "100%,"
-//             // "background-color": "red",
-//         }
-//         let body = document.querySelector("body");
-//         Object.assign(body.style, newBodyStyles);
+// const closeModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.remove("active")
+//     overlay.classList.remove("active")
+// }
