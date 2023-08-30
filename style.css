@@ -40,11 +40,17 @@ nav {
   background-color: var(--primary-grey);
   color: var(--white);
   padding: 0rem 2rem 0 2rem;
+  /* position: fixed; */
 }
 
 nav img {
   width: 100%;
   height: auto;
+}
+
+.login-user>div>p>a {
+  text-decoration: none;
+  color: var(--gray);
 }
 
 .nav-header {
@@ -84,7 +90,7 @@ nav .nav-items-container .nav-element {
   color: #c1c0c4;
 }
 
-.nav-element > div {
+.nav-element>div {
   display: grid;
   gap: 0.3rem;
   padding-left: 0.3rem;
@@ -126,11 +132,9 @@ main .main-navigation {
 /* Featured Movies section */
 .featured-movies {
   color: white;
-  background: linear-gradient(
-      0deg,
+  background: linear-gradient(0deg,
       rgba(11, 11, 12, 0.7),
-      rgba(105, 105, 105, 0.3)
-    ),
+      rgba(105, 105, 105, 0.3)),
     url(./assets/img/antMan.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -146,14 +150,14 @@ main .main-navigation {
   gap: 1rem;
 }
 
-.featured-description > div:first-of-type {
+.featured-description>div:first-of-type {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.featured-description > div:first-of-type > .rank {
+.featured-description>div:first-of-type>.rank {
   font-weight: bold;
   background-color: var(--tertiary-orange);
   color: var(--secondary-black);
@@ -161,7 +165,7 @@ main .main-navigation {
   border-radius: 0.5rem;
 }
 
-.featured-description > div:first-of-type > p:nth-of-type(2) {
+.featured-description>div:first-of-type>p:nth-of-type(2) {
   width: 1.5rem;
   height: 1.5rem;
   display: grid;
@@ -171,7 +175,7 @@ main .main-navigation {
   padding: 0.25rem;
 }
 
-.featured-description > div:first-of-type > p:nth-of-type(2) > i {
+.featured-description>div:first-of-type>p:nth-of-type(2)>i {
   font-size: 1rem;
 }
 
@@ -185,12 +189,12 @@ main .main-navigation {
   color: var(--white);
 }
 
-.featured-description .description h3 + p {
+.featured-description .description h3+p {
   color: var(--gray);
   margin-bottom: 0.65rem;
 }
 
-.featured-description .description h3 + p + p {
+.featured-description .description h3+p+p {
   font-size: 0.75rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -202,7 +206,7 @@ main .main-navigation {
   gap: 0.5rem;
 }
 
-.featured-description .description .likes > p {
+.featured-description .description .likes>p {
   padding: 0.2rem;
   display: grid;
   place-items: center;
@@ -232,7 +236,7 @@ main .main-navigation {
     gap: 0.5rem;
   }
 
-  .caroussel-header > div:first-of-type {
+  .caroussel-header>div:first-of-type {
     align-self: flex-start;
     margin-bottom: 0.5rem;
   }
@@ -248,7 +252,7 @@ main .main-navigation {
   margin: 0;
 }
 
-.caroussel-header .title + p {
+.caroussel-header .title+p {
   color: var(--blueish-grey);
   font-size: 0.85rem;
 }
@@ -286,7 +290,7 @@ main .main-navigation {
   transition: transform 250ms ease-in-out;
 }
 
-.slider > img {
+.slider>img {
   flex: 0 0 calc(100% / var(--items-per-screen));
   max-width: calc(100% / var(--items-per-screen));
   aspect-ratio: 16/9;
@@ -342,6 +346,7 @@ main .main-navigation {
   /* Styling the Navbar */
   nav {
     display: none;
+
   }
 
   .active-nav {
@@ -436,8 +441,8 @@ main .main-navigation {
     gap: 0.5rem;
   }
 
-  .main-navigation .main-lang-choice > div,
-  .main-navigation .login-user > div {
+  .main-navigation .main-lang-choice>div,
+  .main-navigation .login-user>div {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -447,7 +452,7 @@ main .main-navigation {
     margin-left: 0.5rem;
   }
 
-  .main-navigation .login-user > p > i {
+  .main-navigation .login-user>p>i {
     margin-right: 0.5rem;
   }
 
@@ -462,6 +467,7 @@ main .main-navigation {
 }
 
 @media screen and (min-width: 500px) {
+
   /* Movie Slider */
   .slider {
     --items-per-screen: 2;
@@ -469,6 +475,7 @@ main .main-navigation {
 }
 
 @media screen and (min-width: 700px) {
+
   /* Movie Slider */
   .slider {
     --items-per-screen: 3;
@@ -476,6 +483,7 @@ main .main-navigation {
 }
 
 @media screen and (min-width: 1200px) {
+
   /* Movie Slider */
   .slider {
     --items-per-screen: 4;
