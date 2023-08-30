@@ -169,3 +169,5 @@ const closeModal = (modal) => {
     modal.classList.remove("active")
     overlay.classList.remove("active")
 }
+
+console.log(openModalButtons);
