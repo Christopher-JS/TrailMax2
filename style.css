@@ -319,6 +319,7 @@ main .empty-boiler-plate {
 }
 
 .slider > img {
+  position: relative;
   --slider-img-width: calc(100% / var(--items-per-screen));
   flex: 0 0 var(--slider-img-width);
   max-width: var(--slider-img-width);
@@ -365,10 +366,6 @@ main .empty-boiler-plate {
 }
 
 /* Movie details Modal */
-.modal-section {
-  /* padding: 1rem 0.5rem; */
-}
-
 .modal {
   width: 95%;
   max-width: 600px;
@@ -482,6 +479,7 @@ main .empty-boiler-plate {
 }
 
 .modal-body-header .movie-genre > p {
+  font-size: 0.7rem;
   border: 1px solid var(--gray);
   align-self: flex-start;
   border-radius: 0.5rem;
@@ -498,7 +496,7 @@ main .empty-boiler-plate {
   font-size: 0.85rem;
 }
 
-.modal-body .modal-body-description .movie-cast > p > span {
+.modal-body .modal-body-description .movie-cast > p > span:first-of-type {
   color: var(--gray);
   margin-right: 0.2rem;
 }
@@ -672,7 +670,7 @@ main .empty-boiler-plate {
 
   .modal-body .modal-body-header .movie-title,
   .modal-body .modal-body-description .movie-summary {
-    width: 60%;
+    width: 55%;
   }
 
   .modal-body .modal-body-description .movie-cast {

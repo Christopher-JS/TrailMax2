@@ -140,34 +140,34 @@ const onHandleClick = (handle) => {
 }
 
 // Movie details Modal Section JS
-const openModalButtons = document.querySelectorAll("[data-modal-target]")
-const closeModalButtons = document.querySelectorAll("[data-close-button]")
-const overlay = document.getElementById("overlay")
+// const openModalButtons = document.querySelectorAll("[data-modal-target]")
+// const closeModalButtons = document.querySelectorAll("[data-close-button]")
+// const overlay = document.getElementById("overlay")
 
-openModalButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const modal = document.querySelector(btn.dataset.modalTarget)
-        openModal(modal)
-    })
-})
+// openModalButtons.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         const modal = document.querySelector(btn.dataset.modalTarget)
+//         openModal(modal)
+//     })
+// })
 
-closeModalButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const modal = btn.closest(".modal")
-        closeModal(modal)
-    })
-})
+// closeModalButtons.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         const modal = btn.closest(".modal")
+//         closeModal(modal)
+//     })
+// })
 
-const openModal = (modal) => {
-    if (modal == null) return
-    modal.classList.add("active")
-    overlay.classList.add("active")
-}
+// const openModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.add("active")
+//     overlay.classList.add("active")
+// }
 
-const closeModal = (modal) => {
-    if (modal == null) return
-    modal.classList.remove("active")
-    overlay.classList.remove("active")
-}
+// const closeModal = (modal) => {
+//     if (modal == null) return
+//     modal.classList.remove("active")
+//     overlay.classList.remove("active")
+// }
 
-console.log(openModalButtons);
+// console.log(openModalButtons);
