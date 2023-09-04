@@ -11,13 +11,13 @@ const options = {
 };
 
 
-const setMultipleAttributesOnElement = (elem, elemAttributes) => {
-    Object.keys(elemAttributes).forEach(attribute => {
-        elem.setAttribute(attribute, elemAttributes[attribute]);
+// const setMultipleAttributesOnElement = (elem, elemAttributes) => {
+//     Object.keys(elemAttributes).forEach(attribute => {
+//         elem.setAttribute(attribute, elemAttributes[attribute]);
 
-    });
+//     });
 
-}
+// }
 
 // Movie details popup card close btn
 const closeModalButtons = document.querySelectorAll("[data-close-button]")
@@ -75,67 +75,87 @@ const getTrendigMovies = async (media_type, period) => {
 
 const renderTrendingMovies = async (media_type, period) => {
     const trendingMovies = await getTrendigMovies(media_type, period)
+    const trendingMovieContainer = document.querySelector(`.slider.${media_type}`);
+    trendingMovieContainer.innerHTML = ""
+    // console.log(trendingMovies)
+    // console.log(trendingMovieContainer)
+
 
     try {
         trendingMovies.forEach((movie, index) => {
             const movieID = movie.id
-            const moviePoster = document.querySelectorAll(".featured-movie-img")
+            const movieCard = `
+                <div class="movie-poster" data-modal-target="#modal">
+                    <img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" alt="${movie.title}"  class="featured-movie-img">
+                    <p>${media_type === "movie" ? movie.title : movie.name}</p>
+                </div>
+            `
 
-            const imgAttributes = {
-                src: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
-                alt: `${movie.title}`,
-                "data-modal-target": `#modal`
-            }
-            setMultipleAttributesOnElement(moviePoster[index], imgAttributes)
+            trendingMovieContainer.innerHTML += `${movieCard}`
+            // console.log(movie)
+        })
+    } catch (error) {
+        console.log("Error !")
+        console.log(error)
+    }
+}
+
+const renderMovieDescriptionModal = async (media_type, period) => {
+    const trendingMovies = await getTrendigMovies(media_type, period)
+    const moviePoster = document.querySelectorAll(`.slider.${media_type} > .movie-poster`)
+
+    try {
+        trendingMovies.forEach((movie, index) => {
+            const movieID = movie.id
+
 
             moviePoster[index].addEventListener("click", async () => {
                 const modal = document.querySelector(moviePoster[index].dataset.modalTarget)
                 const modalHeader = document.querySelector(".modal-header")
 
+                console.log(movie)
+
                 modalHeader.style.cssText = `
-                    background: linear-gradient(
-                        0deg,
-                        rgba(11, 11, 12, 0.7),
-                        rgba(105, 105, 105, 0.3)
-                      ),
-                      url(https://image.tmdb.org/t/p/original${movie.poster_path});
-                      background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: cover;
-                    `;
+                        background: linear-gradient(
+                            0deg,
+                            rgba(11, 11, 12, 0.7),
+                            rgba(105, 105, 105, 0.3)
+                          ),
+                          url(https://image.tmdb.org/t/p/original${movie.poster_path});
+                          background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        `;
 
                 // Update Text of the Modal with API content
                 document.querySelector(".modal-header > div .movie-type").innerHTML = `${movie.media_type}`
-                document.querySelector(".modal-body-header .movie-title > h2").innerHTML = `${movie.title}`
-                document.querySelector(".modal-body-header .movie-title > .rating > .movie-release").innerHTML = `${movie.release_date}`
+                document.querySelector(".modal-body-header .movie-title > h2").innerHTML = `${media_type === "tv" ? movie.name : movie.title}`
+                document.querySelector(".modal-body-header .movie-title > .rating > .movie-release").innerHTML = `${media_type === "tv" ? movie.first_air_date : movie.release_date}`
                 document.querySelector(".modal-body .modal-body-description .movie-summary > p").innerHTML = `${movie.overview}`
                 document.querySelector(".modal-body-header .movie-title > .rating .movie-rating > i").innerHTML = `  ${movie.vote_average}`
                 document.querySelector(".modal-body-header .movie-title > .rating .movie-popularity").innerHTML = `  ${movie.popularity}`
 
-                try {
-                    // Fetch Movie Genres
-                    const movieGenres = await getMovieGenre(media_type, movie)
+                // Fetch Movie Genres
+                const movieGenres = await getMovieGenre(media_type, movie)
+                // console.log(movieGenres)
 
-                    // Fetch Movie Credits: Casts and Producer
-                    const movieCredit = await getMovieCredits(media_type, movieID)
+                // Fetch Movie Credits: Casts and Producer
+                const movieCredit = await getMovieCredits(media_type, movieID)
 
-                    // Change Movie Genres Text
-                    let movieGenreContainer = document.querySelector(".modal-body-header .movie-genre")
-                    movieGenreContainer.innerHTML = ""
-                    movieGenres.forEach((genre, index) => {
-                        const genreText = `<p>${genre.name}</p>`
-                        movieGenreContainer.innerHTML += genreText
+                // Change Movie Genres Text
+                let movieGenreContainer = document.querySelector(".modal-body-header > .movie-genre")
+                movieGenreContainer.innerHTML = ""
+                movieGenres.forEach((genre, index) => {
+                    const genreText = `<p>${genre.name}</p>`
+                    movieGenreContainer.innerHTML += genreText
+                    console.log(genre.name)
+                })
 
-                    })
+                // Set paragraph to Producer name
+                document.querySelector(".modal-body .modal-body-description .movie-cast > p:first-of-type").innerHTML = `<span>Director:</span><span>${movieCredit[1]}</span>`
+                // Set paragraph to Cast name
+                document.querySelector(".modal-body .modal-body-description .movie-cast > p:nth-of-type(2)").innerHTML = `<span>Cast:</span><span>${movieCredit[0].join(", ")}</span>`
 
-                    // Set paragraph to Producer name
-                    document.querySelector(".modal-body .modal-body-description .movie-cast > p:first-of-type").innerHTML = `<span>Director:</span><span>${movieCredit[1]}</span>`
-                    // Set paragraph to Cast name
-                    document.querySelector(".modal-body .modal-body-description .movie-cast > p:nth-of-type(2)").innerHTML = `<span>Cast:</span><span>${movieCredit[0].join(", ")}</span>`
-                } catch (error) {
-                    console.log("Error !")
-                    console.log(error)
-                }
 
                 openModal(modal)
             })
@@ -149,6 +169,11 @@ const renderTrendingMovies = async (media_type, period) => {
         console.log("Error !")
         console.log(error)
     }
+
+
 }
 
 renderTrendingMovies("movie", "day");
+renderMovieDescriptionModal("movie", "day")
+renderTrendingMovies("tv", "day");
+renderMovieDescriptionModal("tv", "day")
