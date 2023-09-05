@@ -1,0 +1,105 @@
+@import url("./style.css");
+
+body {
+  width: 100%;
+  margin: 1.5rem auto;
+  background-image: linear-gradient(
+    to left bottom,
+    #505050,
+    #696969 #0b0b0c,
+    #0b0b0c
+  );
+  display: grid;
+}
+
+nav .resp-nav-header {
+  padding-bottom: 0;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0rem;
+}
+
+nav .resp-nav-header img {
+  width: 8rem;
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+  max-width: 600px;
+  color: white;
+  margin: auto;
+  /* From https://css.glass */
+  background: rgba(2, 2, 2, 0.83);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(2, 2, 2, 0.16);
+}
+
+.form-container {
+  color: var(--white);
+  padding: 0rem 1.5rem 1rem 1.5rem;
+}
+
+.form-container h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
+form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+form > div.label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+form > div.label > label {
+  color: var(--blueish-grey);
+}
+
+form > div.label > input {
+  color: var(--secondary-black);
+  font-weight: 100;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  background: rgba(247, 248, 255, 0.75);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+form > div.label > input:focus {
+  /* background-color: red; */
+  outline: none;
+  border: 2px solid var(--tertiary-orange);
+}
+
+form > div.label > input::placeholder {
+  font-weight: 100;
+  color: var(--secondary-black);
+}
+
+form > button {
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  background-color: var(--tertiary-orange);
+  border: none;
+}
+
+form > p {
+  color: var(--blueish-grey);
+}
+
+form > p > a {
+  color: var(--tertiary-orange);
+}
