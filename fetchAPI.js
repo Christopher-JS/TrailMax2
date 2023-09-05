@@ -174,6 +174,6 @@ const renderMovieDescriptionModal = async (media_type, period) => {
 }
 
 renderTrendingMovies("movie", "day");
-renderMovieDescriptionModal("movie", "day")
+renderMovieDescriptionModal("movie", "day");
 renderTrendingMovies("tv", "day");
 renderMovieDescriptionModal("tv", "day")

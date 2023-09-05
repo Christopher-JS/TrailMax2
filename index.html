@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <script defer src="./index.js"></script>
     <script defer src="./fetchAPI.js"></script>
     <title>TrailMax Movies</title>
@@ -16,7 +16,7 @@
         <div class="resp-nav-header">
             <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
             <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
-            <img src="./assets/img/Trailmax1.png" alt="logo" />
+            <a href="./index.html"><img src="./assets/img/Trailmax1.png" alt="logo" /></a>
         </div>
 
         <section class="nav-items-container">
@@ -31,34 +31,35 @@
                 <div class="nav-element">
                     <h2>Menu</h2>
                     <div>
-                        <p><i class="fa-solid fa-house"></i> Home</p>
-                        <p><i class="fa-regular fa-tower-broadcast"></i> Community</p>
-                        <p><i class="fa-regular fa-forward"></i> Upcoming</p>
+                        <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
+                        <a href="#"><i class="fa-regular fa-tower-broadcast"></i> Community</a>
+                        <a href="#"><i class="fa-regular fa-forward"></i> Upcoming</a>
                     </div>
                 </div>
 
                 <div class="nav-element">
                     <h2>Library</h2>
                     <div>
-                        <p><i class="fa-solid fa-list"></i> Playlist</p>
-                        <p><i class="fa-regular fa-circle-down"></i> Downloads</p>
+                        <a href="#"><i class="fa-solid fa-list"></i> Playlist</a>
+                        <a href="#"><i class="fa-regular fa-circle-down"></i> Downloads</a>
                     </div>
                 </div>
 
                 <div class="nav-element">
                     <h2>Category</h2>
                     <div>
-                        <p><i class="fa-regular fa-film"></i> Movies</p>
-                        <p><i class="fa-solid fa-tv"></i> TV series</p>
-                        <p><i class="fa-regular fa-eye"></i> Reality Shows</p>
+                        <a href="#"><i class="fa-regular fa-film"></i> Movies</a>
+                        <a href="#"><i class="fa-solid fa-tv"></i> TV series</a>
+                        <a href="#"><i class="fa-regular fa-eye"></i> Reality Shows</a>
                     </div>
                 </div>
 
                 <div class="nav-element">
                     <h2>General</h2>
                     <div>
-                        <p><i class="fa-regular fa-gear"></i> Settings</p>
-                        <p><i class="fa-regular fa-circle-question"></i> Help</p>
+                        <a href="./login.html"><i class="fa-solid fa-user"></i></i> Login</a>
+                        <a href="#"><i class="fa-regular fa-gear"></i> Settings</a>
+                        <a href="#"><i class="fa-regular fa-circle-question"></i> Help</a>
                     </div>
                 </div>
             </div>
@@ -75,10 +76,10 @@
             </div>
 
             <div class="login-user">
-                <div>
+                <a href="./login.html">
                     <i class="fa-solid fa-user"></i>
                     <p>Login</p>
-                </div>
+                </a>
             </div>
             </div>
         </section>
@@ -130,10 +131,10 @@
                 <div class="movie-container">
                     <button class="handle left-handle"><i class="fa-solid fa-chevron-left"></i></button>
                     <div class="slider movie">
-                        <div class="movie-poster">
+                        <!-- <div class="movie-poster">
                             <img src="/assets/img/antMan.jpg" alt="">
                             <p>Movie Title</p>
-                        </div>
+                        </div> -->
                     </div>
                     <button class="handle right-handle"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
@@ -157,10 +158,10 @@
                 <div class="movie-container">
                     <button class="handle left-handle"><i class="fa-solid fa-chevron-left"></i></button>
                     <div class="slider tv">
-                        <div class="movie-poster">
+                        <!-- <div class="movie-poster">
                             <img src="/assets/img/antMan.jpg" alt="">
                             <p>Movie Title</p>
-                        </div>
+                        </div> -->
                     </div>
                     <button class="handle right-handle"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
@@ -185,10 +186,12 @@
                         <h2>Ant Man | Quantumania</h2>
                         <div class="rating">
                             <p class="movie-release">1h30min</p>
-                            <p class="movie-rating"><i class="fa-solid fa-star" style="color: #e68a1b"></i></p>
+                            <p class="movie-rating"><i class="fa-solid fa-star"
+                                    style="color: var(--tertiary-orange)"></i></p>
                             <p class="movie-popularity">12+</p>
                         </div>
-                        <p class="add-to-playlist" style="color: #e68a1b"><i class="fa-solid fa-plus"></i>Add to
+                        <p class="add-to-playlist" style="color: var(--tertiary-orange)"><i
+                                class="fa-solid fa-plus"></i>Add to
                             Playlist</p>
                     </div>
 

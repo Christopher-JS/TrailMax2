@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
-    <title>Trailmax Login</title>
     <link rel="stylesheet" href="./styles/login.css">
+    <title>Trailmax Sign up</title>
 </head>
 
 <body>
@@ -18,8 +17,17 @@
         </nav>
 
         <div class="form-container">
-            <h2>Login to TrailMax</h2>
+            <h2>Create an Account</h2>
             <form action="#" method="GET">
+                <div class="label">
+                    <label for="full-name">Full Names</label>
+                    <input type="text" name="full-name" id="full-name" placeholder="Type your Full Name" required>
+                </div>
+
+                <div class="label">
+                    <label for="username">Create Username</label>
+                    <input type="text" name="username" id="username" placeholder="Type username" required>
+                </div>
                 <div class="label">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Type email" required>
@@ -29,10 +37,10 @@
                     <input type="password" name="password" id="password" placeholder="Type password" required>
                 </div>
                 <button type="submit">
-                    LOGIN
+                    SIGNUP
                 </button>
 
-                <p>Don't have an account? <a href="./sign-up.html">Sign up</a></p>
+                <p>Already have an account? <a href="./login.html">login</a></p>
             </form>
         </div>
     </div>

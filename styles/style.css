@@ -10,7 +10,8 @@
   --brown: #4a3c32;
   --blueish-grey: #757c8a;
   --chocolate: #9f5f3c;
-  --tertiary-orange: #e68a1b;
+  --tertiary-orange: #dc0404;
+  /* --tertiary-orange: #e68a1b; */
   --pinkish: #ceafae;
   --white: #f7f8ff;
   --gray: #c1c0c4;
@@ -32,6 +33,30 @@ body {
   font-family: "Poppins", sans-serif;
   color: var(--white);
   background-color: var(--secondary-black);
+}
+
+.open-menu,
+.close-menu {
+  cursor: pointer;
+  transition: transform 100ms ease-out;
+}
+
+.open-menu:hover,
+.close-menu:hover {
+  transform: scale(1.05);
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 100ms ease-out;
+}
+
+a:hover {
+  color: var(--tertiary-orange);
+  /* border-bottom: 1px solid var(--tertiary-orange); */
+  transform: scale(1.05);
 }
 
 /* Styling the Navbar */
@@ -157,7 +182,7 @@ main .empty-boiler-plate {
       rgba(11, 11, 12, 0.7),
       rgba(105, 105, 105, 0.3)
     ),
-    url(./assets/img/antMan.jpg);
+    url(../assets/img/antMan.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -311,7 +336,7 @@ main .empty-boiler-plate {
 
 .movie-container > .slider {
   --items-per-screen: 1;
-  --slider-index: 1;
+  --slider-index: 0;
   width: calc(100% - var(--movie-slider-padding));
   display: flex;
   transform: translateX(calc(var(--slider-index) * -100%));
@@ -410,7 +435,7 @@ main .empty-boiler-plate {
 .modal-header {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(
+  /* background: linear-gradient(
       0deg,
       rgba(11, 11, 12, 0.7),
       rgba(105, 105, 105, 0.3)
@@ -418,7 +443,7 @@ main .empty-boiler-plate {
     url(./assets/img/antMan.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   padding: 0.5rem 1rem;
@@ -493,7 +518,6 @@ main .empty-boiler-plate {
 }
 
 .modal-body-header .movie-genre {
-  background-color: red;
   color: var(--gray);
   display: flex;
   gap: 0.5rem;
@@ -595,7 +619,7 @@ main .empty-boiler-plate {
   }
 
   .nav-search .main-lang-choice > div,
-  .nav-search .login-user > div {
+  .nav-search .login-user > a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
