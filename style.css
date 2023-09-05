@@ -2,7 +2,7 @@
 
 :root {
   --nav-width: 100%;
-  --handle-size: 2rem;
+  --handle-size: 1.5rem;
   --movie-slider-padding: 2.5rem;
   --img-gap: 0.25rem;
   --secondary-black: #0b0b0c;
@@ -254,12 +254,12 @@ main .empty-boiler-plate {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
 }
 
 @media screen and (max-width: 600px) {
   .caroussel-header {
     width: 100%;
-    /* background-color: red; */
     flex-direction: column;
     gap: 0.5rem;
   }
@@ -293,7 +293,7 @@ main .empty-boiler-plate {
 .slider-progress-bar .progress-item {
   flex: 0 0 1rem;
   min-width: 1rem;
-  height: 0.25rem;
+  height: 0.15rem;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -301,68 +301,88 @@ main .empty-boiler-plate {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Caroussel - Movie Slider */
+/*  */
 .movie-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
 
-.slider {
+.movie-container > .slider {
   --items-per-screen: 1;
-  --slider-index: 0;
-  flex-grow: 1;
+  --slider-index: 1;
+  width: calc(100% - var(--movie-slider-padding));
   display: flex;
-  margin: 0 var(--img-gap);
   transform: translateX(calc(var(--slider-index) * -100%));
-  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-out;
+  margin: 0 var(--img-gap);
 }
 
-.slider > img {
-  position: relative;
-  --slider-img-width: calc(100% / var(--items-per-screen));
-  flex: 0 0 var(--slider-img-width);
-  max-width: var(--slider-img-width);
-  aspect-ratio: 16/9;
+.movie-container > .slider > .movie-poster {
+  flex: 0 0 calc(100% / var(--items-per-screen));
+  max-width: calc(100% / var(--items-per-screen));
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: visible;
   padding: var(--img-gap);
-  border-radius: 1rem;
-  overflow: hidden;
 }
 
-.handle {
-  font-size: 5rem;
-  color: var(--white);
+.movie-container > .slider > .movie-poster > img {
+  width: 100%;
+}
+
+.movie-container > .slider > .movie-poster > p {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.movie-container .handle {
+  /* width: var(--handle-size) */
+  font-size: var(--handle-size);
+  color: rgba(247, 248, 255, 0.35);
+  background-color: rgba(11, 11, 12, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 0;
   flex-shrink: 0;
-  width: var(--handle-size);
-  background-color: rgb(193, 192, 196, 0.4);
-  z-index: 10;
-  margin: 0.15rem 0;
-  padding: 0 var(--img-gap);
-  border: none;
-  border-radius: 0.5rem;
-}
-
-.handle:hover,
-.handle:focus {
-  font-size: 6rem;
-  transition: font-size 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out;
-  background-color: rgb(193, 192, 196, 0.75);
+  margin: 0.25rem 0;
+  padding: 0 0;
   cursor: pointer;
+  border: none;
+  transition: background-color 150ms ease-out;
+  z-index: 10;
 }
 
-.left-handle {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.movie-container .handle.left-handle {
+  padding: 0 0 0 0.2rem;
 }
 
-.right-handle {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.movie-container .handle.right-handle {
+  padding: 0 0.2rem 0 0;
+}
+
+.movie-container:hover .handle,
+.movie-container .handle:hover,
+.movie-container .handle:focus {
+  background-color: rgba(11, 11, 12, 0.75);
+  color: rgba(247, 248, 255, 0.65);
+}
+
+.movie-container .handle:hover .fa-chevron-right,
+.movie-container .handle:hover .fa-chevron-left,
+.movie-container .handle:focus .fa-chevron-right,
+.movie-container .handle:focus .fa-chevron-left {
+  transition: transform 150ms ease-out;
+}
+
+.movie-container .handle:hover .fa-chevron-right,
+.movie-container .handle:hover .fa-chevron-left {
+  transform: scale(1.2);
 }
 
 /* Movie details Modal */
@@ -473,6 +493,7 @@ main .empty-boiler-plate {
 }
 
 .modal-body-header .movie-genre {
+  background-color: red;
   color: var(--gray);
   display: flex;
   gap: 0.5rem;
@@ -680,21 +701,21 @@ main .empty-boiler-plate {
 
 @media screen and (min-width: 500px) {
   /* Movie Slider */
-  .slider {
+  .movie-container > .slider {
     --items-per-screen: 2;
   }
 }
 
 @media screen and (min-width: 700px) {
   /* Movie Slider */
-  .slider {
+  .movie-container > .slider {
     --items-per-screen: 3;
   }
 }
 
 @media screen and (min-width: 1200px) {
   /* Movie Slider */
-  .slider {
+  .movie-container > .slider {
     --items-per-screen: 4;
   }
 }

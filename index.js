@@ -34,9 +34,18 @@ closeMenuBtn.forEach(btn => btn.addEventListener("click", toggleNavbar))
 
 
 // Movie Caroussel & Slider JAVASCRIPT Logic
+document.addEventListener("click", e => {
+    let handle
+    if (e.target.matches(".handle")) {
+        handle = e.target
+    } else {
+        handle = e.target.closest(".handle")
+    }
+    if (handle != null) {
+        onHandleClick(handle)
+    }
+})
 
-// Caroussel Header - Progress Bar
-// JS Throttle
 const throttle = (cb, delay = 1000) => {
     let shouldWait = false
     let waitingArgs
@@ -66,21 +75,16 @@ const throttledProgressBar = throttle(() => {
 }, 250)
 window.addEventListener("resize", throttledProgressBar)
 
-// Calculate ProgressBar
+
 const calculateProgressBar = (progressBar) => {
     progressBar.innerHTML = ""
-
     const slider = progressBar.closest(".movie-caroussel").querySelector(".slider")
-    const itemCount = slider.children.length
+    // const itemCount = slider.children.length
+    const itemCount = 12;
     let sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"))
     const itemsPerScreen = parseInt(getComputedStyle(slider).getPropertyValue("--items-per-screen"))
     const progressBarItemsCount = Math.ceil(itemCount / itemsPerScreen)
-
-    if (sliderIndex >= progressBarItemsCount) {
-        slider.style.setProperty("--slider-index", progressBarItemsCount - 1)
-        sliderIndex = progressBarItemsCount - 1
-    }
-    // console.log(progressBarItemsCount)
+    // console.log(itemCount)
 
     for (let i = 0; i < progressBarItemsCount; i++) {
         const barItem = document.createElement("div")
@@ -93,23 +97,17 @@ const calculateProgressBar = (progressBar) => {
 }
 document.querySelectorAll(".slider-progress-bar").forEach(calculateProgressBar)
 
-// OnClick of left and right handle
-document.addEventListener("click", e => {
-    let handle;
-    if (e.target.matches(".handle")) {
-        handle = e.target
-    } else {
-        handle = e.target.closest(".handle")
-    }
-    if (handle !== null) onHandleClick(handle)
-})
 
 const onHandleClick = (handle) => {
+    // Select the progress bar
     const progressBar = handle.closest(".movie-caroussel").querySelector(".slider-progress-bar")
-    const slider = handle.closest(".movie-container").querySelector(".slider")
-    const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"))
 
     const progressBarItemsCount = progressBar.children.length
+
+    // Select the slider div
+    const slider = handle.closest(".movie-container").querySelector(".slider")
+    // Select the slider index var
+    const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"))
 
     if (handle.classList.contains("left-handle")) {
         if (sliderIndex - 1 < 0) {
@@ -123,7 +121,6 @@ const onHandleClick = (handle) => {
             progressBar.children[sliderIndex - 1].classList.add("active")
         }
     }
-
 
     if (handle.classList.contains("right-handle")) {
         if (sliderIndex + 1 >= progressBarItemsCount) {
