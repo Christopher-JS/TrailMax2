@@ -46,17 +46,19 @@ body {
   transform: scale(1.05);
 }
 
-a {
+a,
+.nav-items-container .nav-items .nav-element button#sign-out {
   color: var(--white);
   text-decoration: none;
   cursor: pointer;
   transition: transform 100ms ease-out;
 }
 
-a:hover {
+a:hover,
+.nav-items-container .nav-items .nav-element button#sign-out:hover {
   color: var(--tertiary-orange);
   /* border-bottom: 1px solid var(--tertiary-orange); */
-  transform: scale(1.05);
+  transform: scale(1.005);
 }
 
 /* Styling the Navbar */
@@ -152,11 +154,26 @@ nav .resp-nav-header .open-menu {
   color: var(--gray);
 }
 
-.nav-items-container .nav-items .nav-element > div {
+.nav-items-container .nav-items .nav-element > div,
+.nav-items-container .nav-items .nav-element button#sign-out {
   font-size: 1.2rem;
   display: grid;
   gap: 0.3rem;
   margin-left: 0.5rem;
+}
+
+/* Nav items to show on login */
+.nav-items-container .nav-items #user-library {
+  display: none;
+}
+
+.nav-items-container .nav-items .nav-element button#sign-out {
+  width: fit-content;
+  background-color: transparent;
+  color: var(--white);
+  margin-left: 0;
+  display: none;
+  border: none;
 }
 
 /* Hide Searchbar Section on mobile devices */
@@ -435,15 +452,6 @@ main .empty-boiler-plate {
 .modal-header {
   width: 100%;
   aspect-ratio: 16 / 9;
-  /* background: linear-gradient(
-      0deg,
-      rgba(11, 11, 12, 0.7),
-      rgba(105, 105, 105, 0.3)
-    ),
-    url(./assets/img/antMan.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   padding: 0.5rem 1rem;
