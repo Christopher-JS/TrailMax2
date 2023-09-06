@@ -18,6 +18,7 @@
 }
 
 .main-section {
+  padding: 0 0 1rem 0;
 }
 
 .main-section .discover-header {
@@ -104,4 +105,124 @@
   > i:first-of-type {
   margin-right: auto;
 }
+
+/* Load More Button */
+.load-more {
+  width: 11.25rem;
+  margin: 0 auto;
+  background-color: var(--tertiary-orange);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border-radius: 1.8rem;
+  transition: all 0.3s ease-out;
+  padding: 1rem 1.5rem;
+  border: none;
+}
+
+.load-more:hover,
+.load-more:focus {
+  background: rgba(2, 2, 2, 0.83);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(2, 2, 2, 0.16);
+  border-radius: 1.8rem;
+  padding: 1rem 1.5rem;
+  outline: none;
+}
+
+/* loader */
+.load-more .loading {
+  /* background-color: blue; */
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+  display: none;
+  animation: loader1 3s linear infinite;
+}
+
+@keyframes loader1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.load-more .loading span {
+  width: 2rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clip: rect(1rem, 2rem, 2rem, 0);
+  animation: loader2 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@keyframes loader2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.load-more .loading > span::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  animation: loader3 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@keyframes loader3 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.load-more .loading span::after {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 3px solid transparent;
+  border: 3px solid var(--secondary-black);
+  border-radius: 50%;
+}
+
+.load-more.show-loader {
+  width: fit-content;
+  background-color: var(--tertiary-orange);
+  text-indent: -999px;
+}
+
+.load-more.show-loader .loading {
+  display: block;
+}
+
 /* grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) */
