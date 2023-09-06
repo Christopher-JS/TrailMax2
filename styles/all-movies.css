@@ -1,0 +1,107 @@
+@import url("./style.css");
+
+:root {
+  --nav-width: 100%;
+  --handle-size: 1.5rem;
+  --movie-slider-padding: 2.5rem;
+  --img-gap: 0.25rem;
+  --secondary-black: #0b0b0c;
+  --primary-grey: #696969;
+  --brown: #4a3c32;
+  --blueish-grey: #757c8a;
+  --chocolate: #9f5f3c;
+  --tertiary-orange: #dc0404;
+  /* --tertiary-orange: #e68a1b; */
+  --pinkish: #ceafae;
+  --white: #f7f8ff;
+  --gray: #c1c0c4;
+}
+
+.main-section {
+}
+
+.main-section .discover-header {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+
+.main-section .discover-header > h1 {
+  font-size: 1.75rem;
+  font-weight: 550;
+  color: var(--white);
+}
+
+.main-section .discover-header > p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+.main-section .discover-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.main-section .discover-content > .movie-card {
+  width: 100%;
+  background: rgba(2, 2, 2, 0.83);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(2, 2, 2, 0.16);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+
+.discover-content > .movie-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.discover-content > .movie-card .movie-description {
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1rem 0.5rem;
+}
+
+.discover-content > .movie-card .movie-description h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.discover-content > .movie-card .movie-description p {
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+
+.discover-content > .movie-card .movie-description > div:last-of-type {
+  display: flex;
+  align-items: center;
+  align-self: baseline;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.discover-content > .movie-card .movie-description > div:last-of-type > * {
+  flex: 0 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+.discover-content
+  > .movie-card
+  .movie-description
+  > div:last-of-type
+  > i:first-of-type {
+  margin-right: auto;
+}
+/* grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) */

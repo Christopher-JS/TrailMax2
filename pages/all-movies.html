@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script rel="preload" src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../styles/all-movies.css" />
+    <script defer src="../index.js"></script>
+    <script defer src="../scripts/fetchAPI.js"></script>
+    <script type="module" src="../scripts/authentication.js" defer></script>
+    <title>All Movies</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="resp-nav-header">
+            <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
+            <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
+            <a href="../index.html"><img src="../assets/img/Trailmax1.png" alt="logo" /></a>
+        </div>
+
+        <section class="nav-items-container">
+            <div class="nav-header">
+                <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
+                <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
+                <img src="../assets/img/Trailmax1.png" alt="logo" />
+            </div>
+
+            <!-- <div class="nav-items"> -->
+            <div class="nav-items">
+                <div class="nav-element nav-menu">
+                    <h2>Menu</h2>
+                    <div>
+                        <a href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+                        <a href="./upcoming.html"><i class="fa-regular fa-forward"></i> Upcoming</a>
+                    </div>
+                </div>
+
+                <div class="nav-element nav-library" id="user-library">
+                    <h2>Library</h2>
+                    <div>
+                        <a href="#"><i class="fa-solid fa-list"></i> Playlist</a>
+                        <a href="#"><i class="fa-solid fa-heart"></i> Liked Videos</a>
+                        <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Watch History</a>
+                    </div>
+                </div>
+
+                <div class="nav-element nav-category">
+                    <h2>Category</h2>
+                    <div>
+                        <a href="./all-movies.html"><i class="fa-regular fa-film"></i> Movies</a>
+                        <a href="./all-series.html"><i class="fa-solid fa-tv"></i> TV series</a>
+                    </div>
+                </div>
+
+                <div class="nav-element nav-general">
+                    <h2>General</h2>
+                    <div>
+                        <a href="../login.html" id="login"><i class="fa-solid fa-user"></i></i> Login</a>
+                        <button id="sign-out"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
+                        <a href="#"><i class="fa-regular fa-gear"></i> Settings</a>
+                        <a href="#"><i class="fa-regular fa-circle-question"></i> Help</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nav-search">
+            <input type="search" name="main-search" id="main-search" placeholder="Search here" />
+            <div class="main-lang-choice">
+                <img src="../assets/img/england1.png" alt="lang-English" />
+                <div>
+                    <p>ENG</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+
+            <div class="login-user">
+                <a href="./login.html">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Login</p>
+                </a>
+            </div>
+            </div>
+        </section>
+    </nav>
+
+    <main>
+        <section class="empty-boiler-plate">H</section>
+        <section class="main-section ">
+            <div class="discover-header">
+                <h1>Discover More Movies</h1>
+                <p>Scroll through our listed movies and discover the perfect movie for you</p>
+            </div>
+
+            <div class="discover-content movie">
+            </div>
+
+            <a href="#" class="load-more">
+                Load More
+            </a>
+
+        </section>
+    </main>
+</body>
