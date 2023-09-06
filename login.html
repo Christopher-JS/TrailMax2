@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
-    <title>Trailmax Login</title>
     <link rel="stylesheet" href="./styles/login.css">
+    <script type="module" src="./scripts/authentication.js" defer></script>
+    <title>Trailmax Login</title>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
 
         <div class="form-container">
             <h2>Login to TrailMax</h2>
-            <form action="#" method="GET">
+            <form action="#" method="POST" class="login-form" id="auth-form">
                 <div class="label">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Type email" required>
@@ -28,7 +29,7 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Type password" required>
                 </div>
-                <button type="submit">
+                <button type="submit" id="login-btn">
                     LOGIN
                 </button>
 
@@ -36,6 +37,7 @@
             </form>
         </div>
     </div>
+
 </body>
 
 </html>

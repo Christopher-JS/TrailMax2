@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
+    <script rel="preload" src="https://kit.fontawesome.com/33f504fffa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/style.css" />
     <script defer src="./index.js"></script>
-    <script defer src="./fetchAPI.js"></script>
+    <script defer src="./scripts/fetchAPI.js"></script>
+    <script type="module" src="./scripts/authentication.js" defer></script>
     <title>TrailMax Movies</title>
 </head>
 
@@ -28,36 +29,36 @@
 
             <!-- <div class="nav-items"> -->
             <div class="nav-items">
-                <div class="nav-element">
+                <div class="nav-element nav-menu">
                     <h2>Menu</h2>
                     <div>
                         <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
-                        <a href="#"><i class="fa-regular fa-tower-broadcast"></i> Community</a>
                         <a href="#"><i class="fa-regular fa-forward"></i> Upcoming</a>
                     </div>
                 </div>
 
-                <div class="nav-element">
+                <div class="nav-element nav-library" id="user-library">
                     <h2>Library</h2>
                     <div>
                         <a href="#"><i class="fa-solid fa-list"></i> Playlist</a>
-                        <a href="#"><i class="fa-regular fa-circle-down"></i> Downloads</a>
+                        <a href="#"><i class="fa-solid fa-heart"></i> Liked Videos</a>
+                        <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Watch History</a>
                     </div>
                 </div>
 
-                <div class="nav-element">
+                <div class="nav-element nav-category">
                     <h2>Category</h2>
                     <div>
                         <a href="#"><i class="fa-regular fa-film"></i> Movies</a>
                         <a href="#"><i class="fa-solid fa-tv"></i> TV series</a>
-                        <a href="#"><i class="fa-regular fa-eye"></i> Reality Shows</a>
                     </div>
                 </div>
 
-                <div class="nav-element">
+                <div class="nav-element nav-general">
                     <h2>General</h2>
                     <div>
-                        <a href="./login.html"><i class="fa-solid fa-user"></i></i> Login</a>
+                        <a href="./login.html" id="login"><i class="fa-solid fa-user"></i></i> Login</a>
+                        <button id="sign-out"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
                         <a href="#"><i class="fa-regular fa-gear"></i> Settings</a>
                         <a href="#"><i class="fa-regular fa-circle-question"></i> Help</a>
                     </div>

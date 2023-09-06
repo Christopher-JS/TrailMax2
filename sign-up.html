@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/login.css">
+    <script type="module" src="./scripts/authentication.js" defer></script>
     <title>Trailmax Sign up</title>
 </head>
 
@@ -18,7 +19,7 @@
 
         <div class="form-container">
             <h2>Create an Account</h2>
-            <form action="#" method="GET">
+            <form action="#" method="POST" class="signup-form" id="auth-form">
                 <div class="label">
                     <label for="full-name">Full Names</label>
                     <input type="text" name="full-name" id="full-name" placeholder="Type your Full Name" required>
@@ -36,13 +37,21 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Type password" required>
                 </div>
-                <button type="submit">
+                <button type="submit" id="signup-btn">
                     SIGNUP
                 </button>
 
                 <p>Already have an account? <a href="./login.html">login</a></p>
             </form>
         </div>
+    </div>
+
+    <div class="login-modal">
+        <div>
+            <h2>Account Created</h2>
+            <p>redirecting...</p>
+        </div>
+        <div class="active" id="login-overlay"></div>
     </div>
 </body>
 

@@ -2,7 +2,8 @@
 
 body {
   width: 100%;
-  margin: 1.5rem auto;
+  height: 100vh;
+  margin: auto auto;
   background-image: linear-gradient(
     to left bottom,
     #505050,
@@ -28,7 +29,6 @@ nav .resp-nav-header img {
   margin: auto;
   max-width: 600px;
   color: white;
-  margin: auto;
   /* From https://css.glass */
   background: rgba(2, 2, 2, 0.83);
   border-radius: 16px;
@@ -102,4 +102,71 @@ form > p {
 
 form > p > a {
   color: var(--tertiary-orange);
+}
+
+.login-modal {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms ease-in-out;
+}
+
+.login-modal.active {
+  opacity: 1;
+  display: flex;
+}
+
+.login-modal > div:first-of-type {
+  width: 80%;
+  max-width: 20rem;
+  position: absolute;
+  padding: 1rem 2rem;
+  margin: auto;
+  background: rgba(2, 2, 2, 0.83);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(2, 2, 2, 0.16);
+  z-index: 2;
+}
+
+.login-modal > div:first-of-type > h2 {
+  width: fit-content;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.login-modal > div:first-of-type > p {
+  width: fit-content;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--tertiary-orange);
+}
+
+#login-overlay {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0%;
+  right: 0%;
+  background: rgba(105, 105, 105, 0.16);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
+  /* pointer-events: none; */
+  transition: 200ms ease-in-out;
+  z-index: 1;
+  border-radius: 0.1rem;
+}
+
+#login-overlay.active {
+  opacity: 1;
+  /* pointer-events: all; */
 }
