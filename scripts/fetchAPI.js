@@ -10,16 +10,6 @@ const options = {
     }
 };
 
-
-// const setMultipleAttributesOnElement = (elem, elemAttributes) => {
-//     Object.keys(elemAttributes).forEach(attribute => {
-//         elem.setAttribute(attribute, elemAttributes[attribute]);
-
-//     });
-
-// }
-
-// Movie details popup card close btn
 const closeModalButtons = document.querySelectorAll("[data-close-button]")
 
 closeModalButtons.forEach(btn => {
@@ -54,7 +44,6 @@ const getMovieCredits = async (media_type, movieID) => {
     return movieCredit
 }
 
-
 // Fetch Movie Genres
 const getMovieGenre = async (media_type, movie) => {
     const response = await fetch(`https://api.themoviedb.org/3/genre/${media_type}/list?language=${lang}`, options);
@@ -64,11 +53,110 @@ const getMovieGenre = async (media_type, movie) => {
     return movieGenres;
 }
 
+
+// Fetch All Movies
+const getAllMovies = async (section_type, media_type, page, sort_media) => {
+    const response = await fetch(`https://api.themoviedb.org/3/${section_type}/${media_type}?language=${lang}&page=${page}${sort_media}`, options)
+
+
+    const responseJSON = await response.json();
+    const allMovies = await responseJSON.results;
+
+    return allMovies;
+}
+
+const renderAllMovies = async (section_type, media_type, page, sort_media) => {
+    const allMovies = await getAllMovies(section_type, media_type, page, sort_media)
+    const allMoviesContainer = document.querySelector(`.discover-content.${media_type}`)
+    allMoviesContainer ? allMoviesContainer.innerHTML = "" : null
+
+    try {
+        allMovies.forEach((movie, index) => {
+            const movieID = movie.id;
+            const movieCard = `
+                <div class="movie-card">
+                    <img src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${media_type === "tv" ? movie.name : movie.title}">
+                    <div class="movie-description">
+                        <div>
+                            <h2>${media_type === "tv" ? movie.name : movie.title}</h2>
+                            <p>${media_type === "tv" ? movie.first_air_date : movie.release_date}</p>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-square-plus"></i>
+                            <i class="fa-regular fa-thumbs-up"></i>
+                            <i class="fa-regular fa-thumbs-down"></i>
+                        </div>
+                    </div>
+                </div>
+            `
+            allMoviesContainer ? allMoviesContainer.innerHTML += movieCard : null
+        })
+
+    } catch (error) {
+        console.log("Error !")
+        console.log(error)
+    }
+}
+
+// Load More Movies on click of button
+const loadMore = async (section_type, media_type, page, sort_media) => {
+    const allMovies = await getAllMovies(section_type, media_type, page, sort_media)
+    const allMoviesContainer = document.querySelector(`.discover-content.${media_type}`)
+    const loadMoreBtn = document.querySelector(".load-more")
+    let currentItems = allMovies.length
+
+    try {
+        loadMoreBtn.addEventListener("click", (e) => {
+            let elementList = [...document.querySelectorAll(`.discover-content.${media_type} > .movie-card`)]
+            e.target.classList.add("show-loader")
+
+            for (let i = currentItems; i < currentItems + 20; i++) {
+                setTimeout(async () => {
+                    page++;
+                    const newMovies = await getAllMovies(section_type, media_type, page, sort_media);
+                    // let newAllMovies = 
+                    elementList = elementList.concat(newMovies);
+                    e.target.classList.remove("show-loader")
+                    if (elementList[i]) {
+                        const movieCard = `
+                            <div class="movie-card">
+                                <img src="https://image.tmdb.org/t/p/original${elementList[i].poster_path}" alt="${media_type === "tv" ? elementList[i].name : elementList[i].title}">
+                                <div class="movie-description">
+                                    <div>
+                                        <h2>${media_type === "tv" ? elementList[i].name : elementList[i].title}</h2>
+                                        <p>${media_type === "tv" ? elementList[i].first_air_date : elementList[i].release_date}</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-regular fa-square-plus"></i>
+                                        <i class="fa-regular fa-thumbs-up"></i>
+                                        <i class="fa-regular fa-thumbs-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                        allMoviesContainer.innerHTML += movieCard;
+                    }
+                }, 1500)
+            }
+            currentItems += 20;
+
+            // hide load button after fully load
+            if (currentItems >= elementList.length) {
+                e.target.classList.add("loaded")
+            }
+        })
+    } catch (error) {
+        console.log("Error !")
+        console.log(error)
+    }
+}
+
+
 // Fetch Trending Movies & Series
 const getTrendigMovies = async (media_type, period) => {
     const response = await fetch(`https://api.themoviedb.org/3/trending/${media_type}/${period}?language=${lang}`, options);
     const responseJSON = await response.json();
-    const trendingMovies = await responseJSON.results.slice(0, 12);
+    const trendingMovies = await responseJSON.results.slice(0, 18);
 
     return trendingMovies;
 }
@@ -86,12 +174,12 @@ const renderTrendingMovies = async (media_type, period) => {
             const movieID = movie.id
             const movieCard = `
                 <div class="movie-poster" data-modal-target="#modal">
-                    <img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" alt="${movie.title}"  class="featured-movie-img">
+                    <img src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="${movie.title}"  class="featured-movie-img">
                     <p>${media_type === "movie" ? movie.title : movie.name}</p>
                 </div>
             `
 
-            trendingMovieContainer.innerHTML += `${movieCard}`
+            trendingMovieContainer ? trendingMovieContainer.innerHTML += `${movieCard}` : null
             // console.log(movie)
         })
     } catch (error) {
@@ -169,12 +257,28 @@ const renderMovieDescriptionModal = async (media_type, period) => {
         console.log("Error !")
         console.log(error)
     }
+}
 
+
+if (location.href.toString().includes("/pages/all-movies.html")) {
+    renderAllMovies("discover", "movie", 1, "&sort_by=popularity.desc");
+    loadMore("discover", "movie", 1, "&sort_by=popularity.desc");
+
+} else if (location.href.toString().includes("/pages/all-series.html")) {
+    renderAllMovies("discover", "tv", 1, "&sort_by=popularity.desc")
+    loadMore("discover", "tv", 1, "&sort_by=popularity.desc");
+
+} else if (location.href.toString().includes("/pages/upcoming.html")) {
+    renderAllMovies("movie", "upcoming", 1, "")
+    loadMore("movie", "upccoming", 1, "");
 
 }
 
-window.addEventListener("load", (renderTrendingMovies("movie", "day"), renderMovieDescriptionModal("movie", "day"), renderTrendingMovies("tv", "day"), renderMovieDescriptionModal("tv", "day")))
-// renderTrendingMovies("movie", "day");
-// renderMovieDescriptionModal("movie", "day");
-// renderTrendingMovies("tv", "day");
-// renderMovieDescriptionModal("tv", "day")
+if (location.toString().includes("/index.html")) {
+    window.addEventListener("load", async () => {
+        renderTrendingMovies("movie", "day")
+        renderTrendingMovies("tv", "day")
+        await renderMovieDescriptionModal("movie", "day")
+        await renderMovieDescriptionModal("tv", "day")
+    })
+}

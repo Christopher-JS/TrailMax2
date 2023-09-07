@@ -80,7 +80,7 @@ const calculateProgressBar = (progressBar) => {
     progressBar.innerHTML = ""
     const slider = progressBar.closest(".movie-caroussel").querySelector(".slider")
     // const itemCount = slider.children.length
-    const itemCount = 12;
+    const itemCount = 18;
     let sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"))
     const itemsPerScreen = parseInt(getComputedStyle(slider).getPropertyValue("--items-per-screen"))
     const progressBarItemsCount = Math.ceil(itemCount / itemsPerScreen)
