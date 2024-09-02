@@ -9,14 +9,19 @@
     <script defer src="./index.js"></script>
     <script defer src="./scripts/fetchAPI.js"></script>
     <script type="module" src="./scripts/authentication.js" defer></script>
+    <!-- Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Production version -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <title>TrailMax Movies</title>
 </head>
 
 <body>
     <nav id="navbar">
         <div class="resp-nav-header">
-            <i class="fa-solid fa-bars open-menu" id="navbar-open-menu-btn"></i>
-            <i class="fa-regular fa-xmark close-menu" id="navbar-close-menu-btn"></i>
+            <i data-lucide="menu" class="open-menu" id="navbar-open-menu-btn"></i>
+            <i data-lucide="x" class="close-menu" id="navbar-close-menu-btn"></i>
             <a href="./index.html"><img src="./assets/img/Trailmax1.png" alt="logo" /></a>
         </div>
 
@@ -32,35 +37,58 @@
                 <div class="nav-element nav-menu">
                     <h2>Menu</h2>
                     <div>
-                        <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a>
-                        <a href="./pages/upcoming.html"><i class="fa-regular fa-forward"></i> Upcoming</a>
+                        <!-- <a href="./index.html"><i class="fa-solid fa-house"></i> Home</a> -->
+                        <a href="./index.html" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="house" class=""></i>
+                            <span>Home</span></a>
+                        <a href="./pages/upcoming.html" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="fast-forward" class=""></i>
+                            <span>Upcoming</span></a>
                     </div>
                 </div>
 
                 <div class="nav-element nav-library" id="user-library">
                     <h2>Library</h2>
                     <div>
-                        <a href="#"><i class="fa-solid fa-list"></i> Playlist</a>
-                        <a href="#"><i class="fa-solid fa-heart"></i> Liked Videos</a>
-                        <a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Watch History</a>
+                        <a href="#" style="display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="list"
+                                class=""></i>
+                            <span>Playlist</span></a>
+                        <a href="#" style="display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="heart"
+                                class=""></i>
+                            <span>Liked Videost</span></a>
+                        <a href="#" style="display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="history"
+                                class=""></i>
+                            <span>Watch History</span></a>
                     </div>
                 </div>
 
                 <div class="nav-element nav-category">
                     <h2>Category</h2>
                     <div>
-                        <a href="./pages/all-movies.html"><i class="fa-regular fa-film"></i> Movies</a>
-                        <a href="./pages/all-series.html"><i class="fa-solid fa-tv"></i> TV series</a>
+                        <a href="./pages/all-movies.html" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="clapperboard" class=""></i>
+                            <span>Movies</span></a>
+                        <a href="./pages//all-series.html" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="tv" class=""></i>
+                            <span>TV series</span></a>
                     </div>
                 </div>
 
                 <div class="nav-element nav-general">
                     <h2>General</h2>
                     <div>
-                        <a href="./login.html" id="login"><i class="fa-solid fa-user"></i></i> Login</a>
-                        <button id="sign-out"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
-                        <a href="#"><i class="fa-regular fa-gear"></i> Settings</a>
-                        <a href="#"><i class="fa-regular fa-circle-question"></i> Help</a>
+                        <a href="./login.html" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="log-in" class=""></i>
+                            <span>Login</span></a>
+                        <button id="sign-out" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="log-out" class=""></i>
+                            <span>Logout</span></button>
+                        <a href="#" style="display: flex; align-items: center; gap: 0.25rem;"><i data-lucide="settings"
+                                class=""></i>
+                            <span>Settings</span></a>
+                        <a href="#" style="display: flex; align-items: center; gap: 0.25rem;"><i
+                                data-lucide="circle-help" class=""></i>
+                            <span>Help</span></a>
                     </div>
                 </div>
             </div>
@@ -177,7 +205,7 @@
             <div class="modal-header">
                 <div>
                     <p class="movie-type">Movie</p>
-                    <p class="close-button" data-close-button><i class="fa-regular fa-xmark"></i></p>
+                    <p class="close-button" data-close-button><i data-lucide="x"></i></p>
                 </div>
             </div>
 
@@ -218,6 +246,10 @@
         <div id="overlay"></div>
     </div>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
