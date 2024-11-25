@@ -1,5 +1,5 @@
 const API_TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MTZlOTRkZmEzMGM5NmFhNDcyYzQ4M2FhY2ZlODJmMCIsIm5iZiI6MTcyNTI3OTQ4OC40Njk0NDIsInN1YiI6IjY0ZWYyMDU1NGIwYzYzMDBjNDI2NGYxZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hkvEVcq530blUjC3VHqBHeqHAir6M-yd5-HpE7QmVWc";
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTFiYjEyMDNmN2VjMGI1NjY1YjJhMWE1OTAxOTEyYSIsIm5iZiI6MTczMjUzMzUyNy45OTgzMDE1LCJzdWIiOiI2NzQ0MzIxNjlhMmYzODJjYmQzNWY0YjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.I9FganDmmhQqyYYEiXvLhxrLV-AvR6MfrBNzJ9onbXA";
 const lang = "en-US";
 
 const options = {
@@ -44,13 +44,13 @@ const getMovieCredits = async (media_type, movieID) => {
     const movieProducer =
       responseJSON.crew.filter(
         (crewMember) => crewMember.job == "Executive Producer"
-      ).length > 0
-        ? responseJSON.crew
-            .filter((crewMember) => crewMember.job == "Executive Producer")
-            .slice(0, 1)[0].name
-        : responseJSON.crew.filter(
-            (crewMember) => crewMember.job == "Executive Producer"
-          );
+      ).length > 0 ?
+      responseJSON.crew
+      .filter((crewMember) => crewMember.job == "Executive Producer")
+      .slice(0, 1)[0].name :
+      responseJSON.crew.filter(
+        (crewMember) => crewMember.job == "Executive Producer"
+      );
 
     const movieCredit = [movieCast, movieProducer];
 
@@ -153,7 +153,7 @@ const loadMore = async (section_type, media_type, page, sort_media) => {
     `.discover-content.${media_type}`
   );
   const loadMoreBtn = document.querySelector(".load-more");
-  let currentItems = allMovies?.length;
+  let currentItems = allMovies ? allMovies.length : 0;
 
   try {
     loadMoreBtn.addEventListener("click", (e) => {
@@ -260,8 +260,9 @@ const renderTrendingMovies = async (media_type, period) => {
             `;
 
       trendingMovieContainer
-        ? (trendingMovieContainer.innerHTML += `${movieCard}`)
-        : null;
+        ?
+        (trendingMovieContainer.innerHTML += `${movieCard}`) :
+        null;
       // console.log(movie)
     });
   } catch (error) {

@@ -1,21 +1,23 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC_WzjJRFZudgpR36mozWDzeE1rqmAlvhI",
-  authDomain: "trailmax2.firebaseapp.com",
-  projectId: "trailmax2",
-  storageBucket: "trailmax2.appspot.com",
-  messagingSenderId: "843757115620",
-  appId: "1:843757115620:web:220e6c928a151a4253f4f1",
+  apiKey: "AIzaSyBj0FBoiBhr6OArs9cJa3ULkm6GazukKes",
+  authDomain: "trailmax2-dbce1.firebaseapp.com",
+  projectId: "trailmax2-dbce1",
+  storageBucket: "trailmax2-dbce1.firebasestorage.app",
+  messagingSenderId: "669853183120",
+  appId: "1:669853183120:web:6660e4a55220f3a8f4bc15",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -100,16 +102,17 @@ const checkAuthState = async () => {
 checkAuthState();
 
 authForm
-  ? authForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+  ?
+  authForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-      if (authForm.classList.contains("signup-form")) {
-        userSignUp();
-      } else {
-        userLogIn();
-      }
-      // handle submit
-    })
-  : null;
+    if (authForm.classList.contains("signup-form")) {
+      userSignUp();
+    } else {
+      userLogIn();
+    }
+    // handle submit
+  }) :
+  null;
 
 signOutBtn ? signOutBtn.addEventListener("click", userLogOut) : null;
